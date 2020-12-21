@@ -8,7 +8,7 @@ int main()
 {
 	setlocale(LC_ALL, "Portuguese");
 	
-	char menu;
+	int menu;
 	menu:
 	printf("  #-----------------------------------#\n");
 	printf("  #   Gestão de Parque de Campismo    #\n");
@@ -22,42 +22,52 @@ int main()
 	printf("  #   7- Sair                         #\n");
     printf("  #-----------------------------------#\n");
     printf("Insira uma opção:  ");
-	scanf("%c", &menu);
+	scanf("%d", &menu);
 
-if(menu == 1)
-{
-	system("CLS");
-			printf("Ver mapa de lotes");
-}
-					
-			if(menu == 2)	
-			printf("Reservar um lote");		
-			break;
+	if(menu == 1){
+		system("CLS");
+		printf("Ver mapa de lotes");
 		
-		case 3:		
-			printf("Consultar um lote");		
-			break;
 		
-		case 4:		
-			printf("Pesquisar lote por campista");		
-			break;
-		
-		case 5:		
-			printf("Editar um lote reservado");		
-			break;
-		
-		case 6:		
-			printf("Libertar um lote");		
-			break;
-			
-		case 7:
-			printf("Sair");
-			break;
-			
-		default:		
-			printf("Insira uma opção válida");
-			goto menu;					
 	}
+				
+	else if(menu == 2){
+		system("CLS");
+		printf("Reservar um lote");
+	}	
+		
+	else if(menu == 3){
+		system("CLS");
+		printf("Consultar um lote");
+	}
+		
+	else if(menu == 4){
+		system("CLS");
+		printf("Pesquisar lote por campista");	
+	}		
+		
+	else if(menu == 5){
+		system("CLS");
+		printf("Editar um lote reservado");	
+	}
+		
+	else if(menu == 6){
+		system("CLS");
+		printf("Libertar um lote");	
+	}
+			
+	else if(menu == 7){
+		system("CLS");
+		printf("Sair");
+	}
+	
+	else{
+		system("CLS");
+		printf("Insira uma opção válida\n");
+			goto menu;	
+	}		
+							
+	
 
 
 }
