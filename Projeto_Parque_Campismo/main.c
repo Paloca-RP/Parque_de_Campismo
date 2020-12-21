@@ -7,11 +7,21 @@
 #define NUMLINHAS 5
 #define NUMCOLUNAS 5
 
+struct clientes{
+    char nome[70];
+    int idade;
+};
+
 char mapaLotes[NUMLINHAS][NUMCOLUNAS];
 
-void reservarUmLote()
+void reservarUmLote(nome, idade)
 {
-
+	printf("insira o nome:  ");
+		gets(nome);
+	printf("insira idade: ");
+		scanf("%d", &idade);
+		
+	printf(" %c, %d", nome, idade);
 }
 
 void consultarUmLote()
@@ -21,6 +31,11 @@ void consultarUmLote()
 
 void mostraMapaDeLotes()
 {
+	char x[10];
+	printf("insira um numero:   ");
+	scanf("%s", &x);
+	mapaLotes[0][0] = x;
+	
     printf("----1----2----3----4--------------\n");
     printf("1|%c    |%c    |%c    |%c    |\n", mapaLotes[0][0], mapaLotes[0][1], mapaLotes[0][2], mapaLotes[0][3], mapaLotes[0][4]);
     printf("2|%c    |%c    |%c    |%c    |\n", mapaLotes[1][0], mapaLotes[1][1], mapaLotes[1][2], mapaLotes[1][3], mapaLotes[1][4]);
@@ -35,15 +50,14 @@ void mostraMapaDeLotes()
 
    switch(op)
    {
-       case 0:
-     system("cls");
-        main();
+	    case 0:
+		    system("cls");
+		    main();
+	    break;
+        
+		default:
+        	printf("OPCAO INVALIDA! TENTE NOVAMENTE");
         break;
-
-        default:
-        printf("OPCAO INVALIDA! TENTE NOVAMENTE");
-        break;
-
    }
 }
 
@@ -87,7 +101,5 @@ int main()
     }
 
 
-} while (menu != 7);
+}while (menu != 7);
 }
-
-
