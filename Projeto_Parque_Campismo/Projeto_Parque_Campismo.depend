@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1608578798 source:c:\users\user\onedrive - instituto politécnico de setúbal\afp\laboratorios\laboratorio 11\projeto_parque_campismo\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+
