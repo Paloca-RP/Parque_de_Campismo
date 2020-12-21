@@ -7,7 +7,7 @@
 #define NUMLINHAS 5
 #define NUMCOLUNAS 5
 
-char mapaParqueEstacionamento[NUMLINHAS][NUMCOLUNAS];
+char mapaLotes[NUMLINHAS][NUMCOLUNAS];
 
 void reservarUmLote()
 {
@@ -21,15 +21,30 @@ void consultarUmLote()
 
 void mostraMapaDeLotes()
 {
-    fflush(stdin);
-    int numero;
-    printf("INSERIR UM NUMERO:");
-    scanf("%d", &numero);
-    if (numero == 0)
-    {
-        system("cls");
-        return main();
-    }
+    printf("----1----2----3----4--------------\n");
+    printf("1|%c    |%c    |%c    |%c    |\n", mapaLotes[0][0], mapaLotes[0][1], mapaLotes[0][2], mapaLotes[0][3], mapaLotes[0][4]);
+    printf("2|%c    |%c    |%c    |%c    |\n", mapaLotes[1][0], mapaLotes[1][1], mapaLotes[1][2], mapaLotes[1][3], mapaLotes[1][4]);
+    printf("3|%c    |%c    |%c    |%c    |\n", mapaLotes[2][0], mapaLotes[2][1], mapaLotes[2][2], mapaLotes[2][3], mapaLotes[2][4]);
+    printf("4|%c    |%c    |%c    |%c    |\n", mapaLotes[3][0], mapaLotes[3][1], mapaLotes[3][2], mapaLotes[3][3], mapaLotes[3][4]);
+    printf("5|%c    |%c    |%c    |%c    |\n", mapaLotes[4][0], mapaLotes[4][1], mapaLotes[4][2], mapaLotes[4][3], mapaLotes[4][4]);
+
+
+    int op;
+    printf("PRETENDE SAIR DESTE MENU? SE SIM CLIQUE NA TECLA '0' : ");
+    scanf("%d", &op);
+
+   switch(op)
+   {
+       case 0:
+     system("cls");
+        main();
+        break;
+
+        default:
+        printf("OPCAO INVALIDA! TENTE NOVAMENTE");
+        break;
+
+   }
 }
 
 //PAGINA DO MENU CENTRAL
@@ -72,7 +87,7 @@ int main()
     }
 
 
-} while (opcao != 7);
+} while (menu != 7);
 }
 
 
