@@ -8,7 +8,7 @@
 #define NUMCOLUNAS 5
 
 struct clientes{
-    char nome[70];
+    char nome[100];
     int idade;
 };
 
@@ -16,10 +16,12 @@ char mapaLotes[NUMLINHAS][NUMCOLUNAS];
 
 void reservarUmLote(nome, idade)
 {
+	clientes nome[100];
+nome
 	printf("insira o nome:  ");
-		gets(nome);
+		gets(nome1);
 	printf("insira idade: ");
-		scanf("%d", &idade);
+		scanf("%d", &idade1);
 		
 	printf(" %c, %d", nome, idade);
 }
