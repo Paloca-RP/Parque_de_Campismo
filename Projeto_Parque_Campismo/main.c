@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
+#include <ctype.h>
 
 #define NUMLINHAS 5
 #define NUMCOLUNAS 5
@@ -25,6 +26,9 @@ struct clientes{
     int rua;
     int lote;
 };
+
+
+char dadosReserva[NUMLINHAS*NUMCOLUNAS*6][500];
 
 struct detalhesReserva{
 
@@ -52,39 +56,48 @@ void reservarUmLote()
     //printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
     //scanf("%d %d", &linha, &coluna);
 
-
+    do{
     printf("\nINSIRA O NUMERO DE CAMPISTAS: ");
     fflush(stdin);
     scanf(" %d", &numeroCampistas);
+    }while(numeroCampistas >6 || numeroCampistas <=0);
 
-
+    do{
     printf("\nTEM ELETRICIDADE?: [S]IM OU [N]AO");
     fflush(stdin);
     scanf(" %c", &tarifaUsada2);
+    toupper(tarifaUsada2);
+    }while(tarifaUsada2 != 'S' || tarifaUsada2 != 'N');
 
-    if (tarifaUsada2 == 's')
+    if (tarifaUsada2 == 'S')
     {
         somaTaxa += ELETRICIDADE;
     }
+
+    do{
     printf("DIAS DE ALOJAMENTO: ");
     scanf(" %d", &diasAlojamento);
+    }while(diasAlojamento<=0);
 
     fflush(stdin);
+    do{
     printf("\nINSIRA O TIPO DE ALOJAMENTO: [T]ENDA , [C]ARAVANA OU [A]UTOCARAVANA\n ");
     scanf(" %c", &tarifaUsada);
+    toupper(tarifaUsada2);
+    }while(tarifaUsada2 != 'T' || tarifaUsada2!= 'C' || tarifaUsada2!= 'A');
 
-    if (tarifaUsada == 't')
+    if (tarifaUsada == 'T')
     {
         somaTaxa += TENDA;
        // mapaLotes[NUMLINHAS][NUMCOLUNAS] = 'T';
     }
-    else if (tarifaUsada == 'c')
+    else if (tarifaUsada == 'C')
     {
         somaTaxa+= CARAVANA;
       //  mapaLotes[NUMLINHAS][NUMCOLUNAS] = 'C';
 
     }
-    else if (tarifaUsada == 'a')
+    else if (tarifaUsada == 'A')
     {
         somaTaxa += AUTOCARAVANA;
       //  mapaLotes[NUMLINHAS][NUMCOLUNAS] = 'A';
@@ -107,6 +120,9 @@ void reservarUmLote()
 		contaCampistas++;
 		indiceNome++;
     }while(contaCampistas != numeroCampistas);
+
+    printf("O TOTAL DA RESERVA É: %0.2f:", somaTaxa);
+
 }
 
 void consultarUmLote()
@@ -153,7 +169,7 @@ int main()
 	    printf("  #-----------------------------------#\n");
 	    printf("Insira uma opçao que pretende:  ");
 		scanf("%d", &menu);
-	
+
 	    switch(menu)
 	    {
 		    case 1:
