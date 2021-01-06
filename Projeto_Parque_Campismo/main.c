@@ -7,21 +7,107 @@
 #define NUMLINHAS 5
 #define NUMCOLUNAS 5
 
+#define NUMLOTES 25
+
+#define TAMANHO_NOME 20
+
+//TAXAS
+#define TENDA 4.50
+#define CARAVANA 6
+#define AUTOCARAVANA 14.90
+#define ELETRICIDADE 3
+#define CAMPISTAS 3.50
+
 struct clientes{
-    char nome[70];
+    char nome[TAMANHO_NOME];
+    char apelido[TAMANHO_NOME];
     int idade;
+    int rua;
+    int lote;
 };
 
-char mapaLotes[NUMLINHAS][NUMCOLUNAS];
+struct detalhesReserva{
 
-void reservarUmLote(nome, idade)
+    char TipoAlojamento;
+    char nomeCampista[TAMANHO_NOME];
+    char apelidoCampista[TAMANHO_NOME];
+    char loteAlojado;
+    float taxaPagar;
+
+};
+//char mapaLotes[NUMLINHAS][NUMCOLUNAS];
+char mapaLotes2[NUMLINHAS][NUMCOLUNAS];
+
+void reservarUmLote()
 {
-	printf("insira o nome:  ");
-		gets(nome);
-	printf("insira idade: ");
-		scanf("%d", &idade);
-		
-	printf(" %c, %d", nome, idade);
+    fflush(stdin);
+    struct clientes dadosClientes;
+    struct detalhesReserva detalhesReserva;
+
+    int numeroCampistas, contaCampistas=0, indiceNome=0;
+    int linha, coluna, diasAlojamento;
+    float somaTaxa=0;
+    char tarifaUsada, tarifaUsada2;
+
+    //printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
+    //scanf("%d %d", &linha, &coluna);
+
+
+    printf("\nINSIRA O NUMERO DE CAMPISTAS: ");
+    fflush(stdin);
+    scanf(" %d", &numeroCampistas);
+
+
+    printf("\nTEM ELETRICIDADE?: [S]IM OU [N]AO");
+    fflush(stdin);
+    scanf(" %c", &tarifaUsada2);
+
+    if (tarifaUsada2 == 's')
+    {
+        somaTaxa += ELETRICIDADE;
+    }
+    printf("DIAS DE ALOJAMENTO: ");
+    scanf(" %d", &diasAlojamento);
+
+    fflush(stdin);
+    printf("\nINSIRA O TIPO DE ALOJAMENTO: [T]ENDA , [C]ARAVANA OU [A]UTOCARAVANA\n ");
+    scanf(" %c", &tarifaUsada);
+
+    if (tarifaUsada == 't')
+    {
+        somaTaxa += TENDA;
+       // mapaLotes[NUMLINHAS][NUMCOLUNAS] = 'T';
+    }
+    else if (tarifaUsada == 'c')
+    {
+        somaTaxa+= CARAVANA;
+      //  mapaLotes[NUMLINHAS][NUMCOLUNAS] = 'C';
+
+    }
+    else if (tarifaUsada == 'a')
+    {
+        somaTaxa += AUTOCARAVANA;
+      //  mapaLotes[NUMLINHAS][NUMCOLUNAS] = 'A';
+
+    }
+    fflush(stdin);
+    somaTaxa = somaTaxa*diasAlojamento;
+    detalhesReserva.taxaPagar= somaTaxa;
+
+    do
+    {
+
+        fflush(stdin);
+        printf("INSERIR PRIMEIRO NOME DO CLIENTE: ");
+		gets(dadosClientes.nome);
+		printf("\nINSERIR APELIDO DO CLIENTE: ");
+		gets(dadosClientes.apelido);
+        printf("\nINSERIR IDADE DO CLIENTE: ");
+		scanf(" %d",&dadosClientes.idade);
+
+		contaCampistas++;
+		indiceNome++;
+    }while(contaCampistas != numeroCampistas);
 }
 
 void consultarUmLote()
@@ -31,34 +117,20 @@ void consultarUmLote()
 
 void mostraMapaDeLotes()
 {
-	char x[10];
-	printf("insira um numero:   ");
-	scanf("%s", &x);
-	mapaLotes[0][0] = x;
-	
-    printf("----1----2----3----4--------------\n");
-    printf("1|%c    |%c    |%c    |%c    |\n", mapaLotes[0][0], mapaLotes[0][1], mapaLotes[0][2], mapaLotes[0][3], mapaLotes[0][4]);
-    printf("2|%c    |%c    |%c    |%c    |\n", mapaLotes[1][0], mapaLotes[1][1], mapaLotes[1][2], mapaLotes[1][3], mapaLotes[1][4]);
-    printf("3|%c    |%c    |%c    |%c    |\n", mapaLotes[2][0], mapaLotes[2][1], mapaLotes[2][2], mapaLotes[2][3], mapaLotes[2][4]);
-    printf("4|%c    |%c    |%c    |%c    |\n", mapaLotes[3][0], mapaLotes[3][1], mapaLotes[3][2], mapaLotes[3][3], mapaLotes[3][4]);
-    printf("5|%c    |%c    |%c    |%c    |\n", mapaLotes[4][0], mapaLotes[4][1], mapaLotes[4][2], mapaLotes[4][3], mapaLotes[4][4]);
+    char string1= "tx89";
+
+    mapaLotes2[4][0] = string1;
+     int linhas, colunas;
 
 
-    int op;
-    printf("PRETENDE SAIR DESTE MENU? SE SIM CLIQUE NA TECLA '0' : ");
-    scanf("%d", &op);
-
-   switch(op)
-   {
-	    case 0:
-		    system("cls");
-		    main();
-	    break;
-        
-		default:
-        	printf("OPCAO INVALIDA! TENTE NOVAMENTE");
-        break;
-   }
+    for(linhas=0;linhas<NUMLINHAS;linhas++)
+    {
+        for(colunas=0; colunas<NUMCOLUNAS; colunas++)
+        {
+            printf("|%c|\t",mapaLotes2[linhas][colunas]);
+        }
+        printf("\n");
+    }
 }
 
 //PAGINA DO MENU CENTRAL
@@ -102,4 +174,5 @@ int main()
 
 
 }while (menu != 7);
+return 0;
 }
