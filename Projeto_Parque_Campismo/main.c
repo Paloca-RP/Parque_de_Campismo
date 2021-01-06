@@ -96,7 +96,6 @@ void reservarUmLote()
 
     do
     {
-
         fflush(stdin);
         printf("INSERIR PRIMEIRO NOME DO CLIENTE: ");
 		gets(dadosClientes.nome);
@@ -141,38 +140,35 @@ int main()
     int menu;
     do
     {
-	printf("  #-----------------------------------#\n");
-	printf("  #   Gestao de Parque de Campismo    #\n");
-	printf("  #-----------------------------------#\n");
-	printf("  #   1- Ver mapa de lotes            #\n");
-	printf("  #   2- Reservar um lote             #\n");
-	printf("  #   3- Consultar um lote            #\n");
-	printf("  #   4- Pesquisar lote por campista  #\n");
-	printf("  #   5- Editar um lote reservado     #\n");
-	printf("  #   6- Libertar um lote             #\n");
-	printf("  #   7- Sair                         #\n");
-    printf("  #-----------------------------------#\n");
-    printf("Insira uma opçao que pretende:  ");
-	scanf("%d", &menu);
-
-    switch(menu)
-    {
-    case 1:
-        system("cls");
-        mostraMapaDeLotes();
-        break;
-    case 2:
-        system("cls");
-        reservarUmLote();
-        break;
-    case 3:
-        system("cls");
-        consultarUmLote();
-        break;
-
-    }
-
-
+		printf("  #-----------------------------------#\n");
+		printf("  #   Gestao de Parque de Campismo    #\n");
+		printf("  #-----------------------------------#\n");
+		printf("  #   1- Ver mapa de lotes            #\n");
+		printf("  #   2- Reservar um lote             #\n");
+		printf("  #   3- Consultar um lote            #\n");
+		printf("  #   4- Pesquisar lote por campista  #\n");
+		printf("  #   5- Editar um lote reservado     #\n");
+		printf("  #   6- Libertar um lote             #\n");
+		printf("  #   7- Sair                         #\n");
+	    printf("  #-----------------------------------#\n");
+	    printf("Insira uma opçao que pretende:  ");
+		scanf("%d", &menu);
+	
+	    switch(menu)
+	    {
+		    case 1:
+		        system("cls");
+		        mostraMapaDeLotes();
+		        break;
+		    case 2:
+		        system("cls");
+		        reservarUmLote();
+		        break;
+		    case 3:
+		        system("cls");
+		        consultarUmLote();
+		        break;
+	    }
 }while (menu != 7);
 return 0;
 }
