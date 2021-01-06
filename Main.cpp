@@ -25,9 +25,10 @@ int main()
 	scanf("%d", &menu);
 
 	if(menu == 1){
+		
+		
 		system("CLS");
 		printf("Ver mapa de lotes");
-		
 		
 	}
 				
