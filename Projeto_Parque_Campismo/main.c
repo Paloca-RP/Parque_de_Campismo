@@ -3,22 +3,22 @@
 	#include <stdlib.h>
 	#include <string.h>
 	#include <locale.h>
-	
+	#include <ctype.h>
+
 	#define NUMLINHAS 5
 	#define NUMCOLUNAS 5
 	#define TAMANHO_STRING 6
-	
+
 	#define NUMLOTES 25
-	
 	#define TAMANHO_NOME 20
-	
+
 	//TAXAS
 	#define TENDA 4.50
 	#define CARAVANA 6
 	#define AUTOCARAVANA 14.90
 	#define ELETRICIDADE 3
 	#define CAMPISTAS 3.50
-	
+
 	struct clientes{
 	    char nome[TAMANHO_NOME];
 	    char apelido[TAMANHO_NOME];
@@ -26,75 +26,77 @@
 	    int rua;
 	    int lote;
 	};
-	
+
 	struct detalhesReserva{
-	
+
 	    char TipoAlojamento;
 	    char nomeCampista[TAMANHO_NOME];
 	    char apelidoCampista[TAMANHO_NOME];
 	    char loteAlojado;
 	    float taxaPagar;
-	
+
 	};
 	//char mapaLotes[NUMLINHAS][NUMCOLUNAS];
 	char mapaLotes2[NUMLINHAS][NUMCOLUNAS][TAMANHO_STRING];
-	
+
 	void reservarUmLote()
 	{
 	    fflush(stdin);
 	    struct clientes dadosClientes;
 	    struct detalhesReserva detalhesReserva;
-	
+
 	    int numeroCampistas, contaCampistas=0, indiceNome=0;
 	    int linha, coluna, diasAlojamento;
 	    float somaTaxa=0;
 	    char tarifaUsada, tarifaUsada2;
-	
+
 	    //printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
 	    //scanf("%d %d", &linha, &coluna);
-	
-	
+
+	    do{
 	    printf("\nINSIRA O NUMERO DE CAMPISTAS: ");
 	    fflush(stdin);
 	    scanf(" %d", &numeroCampistas);
-	
-	
+	    }while(numeroCampistas <=0);
+
+	    do{
 	    printf("\nTEM ELETRICIDADE?: [S]IM OU [N]AO");
 	    fflush(stdin);
 	    scanf(" %c", &tarifaUsada2);
-	
-	    if (tarifaUsada2 == 's')
+	    toupper(tarifaUsada2);
+        }while(tarifaUsada2 != 'S');
+
+	    if (tarifaUsada2 == 'S')
 	    {
 	        somaTaxa += ELETRICIDADE;
 	    }
+	    do{
 	    printf("DIAS DE ALOJAMENTO: ");
 	    scanf(" %d", &diasAlojamento);
-	
-	    fflush(stdin);
+	    }while(diasAlojamento<=0);
+
+        do{
 	    printf("\nINSIRA O TIPO DE ALOJAMENTO: [T]ENDA , [C]ARAVANA OU [A]UTOCARAVANA\n ");
 	    scanf(" %c", &tarifaUsada);
-	
-	    if (tarifaUsada == 't')
+	    toupper(tarifaUsada);
+        }while(tarifaUsada != 'T' || tarifaUsada != 'C' || tarifaUsada != 'A');
+
+	    if (tarifaUsada == 'T')
 	    {
 	        somaTaxa += TENDA;
-	       // mapaLotes[NUMLINHAS][NUMCOLUNAS] = 'T';
 	    }
-	    else if (tarifaUsada == 'c')
+	    else if (tarifaUsada == 'C')
 	    {
 	        somaTaxa+= CARAVANA;
-	      //  mapaLotes[NUMLINHAS][NUMCOLUNAS] = 'C';
-	
 	    }
-	    else if (tarifaUsada == 'a')
+	    else if (tarifaUsada == 'C')
 	    {
 	        somaTaxa += AUTOCARAVANA;
-	      //  mapaLotes[NUMLINHAS][NUMCOLUNAS] = 'A';
-	
 	    }
-	    fflush(stdin);
+
 	    somaTaxa = somaTaxa*diasAlojamento;
 	    detalhesReserva.taxaPagar= somaTaxa;
-	
+
 	    do
 	    {
 	        fflush(stdin);
@@ -104,23 +106,25 @@
 			gets(dadosClientes.apelido);
 	        printf("\nINSERIR IDADE DO CLIENTE: ");
 			scanf(" %d",&dadosClientes.idade);
-	
+
 			contaCampistas++;
 			indiceNome++;
 	    } while(contaCampistas != numeroCampistas);
 	}
-	
+
 	void consultarUmLote()
 	{
-	
+
 	}
-	
+
 	void mostraMapaDeLotes()
 	{
+	    system("cls");
+	    printf("\nMAPA DE LOTES\n");
 		int i,j;
 	    ip:
 	   for ( i=0; i<5; i++ )
-	   {  		
+	   {
 		    for ( j=0; j<5; j++ )
 		    {
 		    	strcpy(mapaLotes2[i][j], "...");
@@ -128,53 +132,50 @@
 		}
 		//############################################ TESTES
 		{
-		/*	strcpy(mapaLotes2[0][0], "tx1"); 
+		/*	strcpy(mapaLotes2[0][0], "tx1");
 			strcpy(mapaLotes2[0][1], "tx1");
 			strcpy(mapaLotes2[0][2], "tx1");
 			strcpy(mapaLotes2[0][3], "tx1");
 			strcpy(mapaLotes2[0][4], "tx1");
-			
+
 			strcpy(mapaLotes2[1][0], "tx1");
 			strcpy(mapaLotes2[1][1], "tx1");
 			strcpy(mapaLotes2[1][2], "tx1");
 			strcpy(mapaLotes2[1][3], "tx1");
 			strcpy(mapaLotes2[1][4], "tx1");
-			
+
 			strcpy(mapaLotes2[2][0], "tx1");
 			strcpy(mapaLotes2[2][1], "tx1");
 			strcpy(mapaLotes2[2][2], "tx1");
 			strcpy(mapaLotes2[2][3], "tx1");
 			strcpy(mapaLotes2[2][4], "tx1");
-			
+
 			strcpy(mapaLotes2[3][0], "tx1");
 			strcpy(mapaLotes2[3][1], "tx1");
 			strcpy(mapaLotes2[3][2], "tx1");
 			strcpy(mapaLotes2[3][3], "tx1");
 			strcpy(mapaLotes2[3][4], "tx1");
-			
+
 			strcpy(mapaLotes2[4][0], "tx1");
 			strcpy(mapaLotes2[4][1], "tx1");
 			strcpy(mapaLotes2[4][2], "tx1");
 			strcpy(mapaLotes2[4][3], "tx1");
 			strcpy(mapaLotes2[4][4], "tx1");*/}
 		//############################################
-	  printf("************* Lotes ************* \n\n");  
+	  printf("************* Lotes ************* \n\n");
 	  printf("   |  1  |  2  |  3  |  4  |  5  \n");
-	  
+
 	  for ( i=0; i<5; i++ )
 	  {
 	    printf("%d -",i+1);
 		    for ( j=0; j<5; j++ )
-		    {	
+		    {
 		      printf ("| %s ",mapaLotes2[ i ][ j ]);
 		    }
 		    printf("\n");
 	  }
-	 
-			
-	  
 	}
-	
+
 	//PAGINA DO MENU CENTRAL
 	int main()
 	{
@@ -183,20 +184,20 @@
 	    int menu;
 	    do
 	    {
-			printf("  #-----------------------------------#\n");
-			printf("  #   Gestao de Parque de Campismo    #\n");
-			printf("  #-----------------------------------#\n");
-			printf("  #   1- Ver mapa de lotes            #\n");
-			printf("  #   2- Reservar um lote             #\n");
-			printf("  #   3- Consultar um lote            #\n");
-			printf("  #   4- Pesquisar lote por campista  #\n");
-			printf("  #   5- Editar um lote reservado     #\n");
-			printf("  #   6- Libertar um lote             #\n");
-			printf("  #   7- Sair                         #\n");
-		    printf("  #-----------------------------------#\n");
+			printf("  |-----------------------------------|\n");
+			printf("  |   Gestao de Parque de Campismo    |\n");
+			printf("  |-----------------------------------|\n");
+			printf("  |   1- Ver mapa de lotes            |\n");
+			printf("  |   2- Reservar um lote             |\n");
+			printf("  |   3- Consultar um lote            |\n");
+			printf("  |   4- Pesquisar lote por campista  |\n");
+			printf("  |   5- Editar um lote reservado     |\n");
+			printf("  |   6- Libertar um lote             |\n");
+			printf("  |   7- Sair                         |\n");
+		    printf("  |-----------------------------------|\n");
 		    printf("Insira uma opçao que pretende:  ");
 			scanf("%d", &menu);
-		
+
 		    switch(menu)
 		    {
 			    case 1:
