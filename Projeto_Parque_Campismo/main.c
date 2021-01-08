@@ -119,10 +119,10 @@
 
 	void mostraMapaDeLotes()
 	{
-	    system("cls");
+	   
 	    printf("\nMAPA DE LOTES\n");
 		int i,j;
-	    ip:
+	    
 	   for ( i=0; i<5; i++ )
 	   {
 		    for ( j=0; j<5; j++ )
@@ -174,6 +174,7 @@
 		    }
 		    printf("\n");
 	  }
+	  return 0;
 	}
 
 	//PAGINA DO MENU CENTRAL
@@ -184,6 +185,7 @@
 	    int menu;
 	    do
 	    {
+	    	system("CLS");
 			printf("  |-----------------------------------|\n");
 			printf("  |   Gestao de Parque de Campismo    |\n");
 			printf("  |-----------------------------------|\n");
