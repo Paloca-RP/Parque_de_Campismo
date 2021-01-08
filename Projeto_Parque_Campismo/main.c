@@ -53,43 +53,42 @@
 	    //printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
 	    //scanf("%d %d", &linha, &coluna);
 
+
 	    do{
 	    printf("\nINSIRA O NUMERO DE CAMPISTAS: ");
-	    fflush(stdin);
 	    scanf(" %d", &numeroCampistas);
 	    }while(numeroCampistas <=0);
 
-	    do{
-	    printf("\nTEM ELETRICIDADE?: [S]IM OU [N]AO");
-	    fflush(stdin);
-	    scanf(" %c", &tarifaUsada2);
-	    toupper(tarifaUsada2);
-        }while(tarifaUsada2 != 'S');
-
-	    if (tarifaUsada2 == 'S')
-	    {
-	        somaTaxa += ELETRICIDADE;
-	    }
-	    do{
+	        do{
 	    printf("DIAS DE ALOJAMENTO: ");
 	    scanf(" %d", &diasAlojamento);
 	    }while(diasAlojamento<=0);
+
+	    do{
+	    printf("\nTEM ELETRICIDADE?: [S]IM OU [N]AO");
+	    scanf(" %c", &tarifaUsada2);
+        }while(tarifaUsada2 != 's' || tarifaUsada2 !='S');
+
+	    if (tarifaUsada2 == 's' || tarifaUsada2 == 'S')
+	    {
+	        somaTaxa += ELETRICIDADE;
+	    }
 
         do{
 	    printf("\nINSIRA O TIPO DE ALOJAMENTO: [T]ENDA , [C]ARAVANA OU [A]UTOCARAVANA\n ");
 	    scanf(" %c", &tarifaUsada);
 	    toupper(tarifaUsada);
-        }while(tarifaUsada != 'T' || tarifaUsada != 'C' || tarifaUsada != 'A');
+        }while(tarifaUsada != 'T' || tarifaUsada != 'C' || tarifaUsada != 'A' || tarifaUsada != 't' || tarifaUsada != 'c' || tarifaUsada != 'a');
 
-	    if (tarifaUsada == 'T')
+	    if (tarifaUsada == 'T' || tarifaUsada == 't')
 	    {
 	        somaTaxa += TENDA;
 	    }
-	    else if (tarifaUsada == 'C')
+	    else if (tarifaUsada == 'C' || tarifaUsada =='c')
 	    {
 	        somaTaxa+= CARAVANA;
 	    }
-	    else if (tarifaUsada == 'C')
+	    else if (tarifaUsada == 'A' || tarifaUsada == 'a')
 	    {
 	        somaTaxa += AUTOCARAVANA;
 	    }
@@ -119,10 +118,10 @@
 
 	void mostraMapaDeLotes()
 	{
-	   
+
 	    printf("\nMAPA DE LOTES\n");
 		int i,j;
-	    
+
 	   for ( i=0; i<5; i++ )
 	   {
 		    for ( j=0; j<5; j++ )
