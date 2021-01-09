@@ -1,4 +1,4 @@
-	#include <stdio.h>
+#include <stdio.h>
 	#include <conio.h>
 	#include <stdlib.h>
 	#include <string.h>
@@ -7,7 +7,7 @@
 
 	#define NUMLINHAS 5
 	#define NUMCOLUNAS 5
-	#define TAMANHO_STRING 6
+	#define TAMANHO_STRING 5
 
 	#define NUMLOTES 25
 	#define TAMANHO_NOME 20
@@ -46,28 +46,29 @@
 	    struct detalhesReserva detalhesReserva;
 
 	    int numeroCampistas, contaCampistas=0, indiceNome=0;
-	    int linha, coluna, diasAlojamento;
+	    char linha, coluna;
+	    int diasAlojamento;
 	    float somaTaxa=0;
 	    char tarifaUsada, tarifaUsada2;
 
-	    //printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
-	    //scanf("%d %d", &linha, &coluna);
+	    printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
+	    scanf("%c %c", &linha, &coluna);
 
-
+        mapaLotes2[linha][coluna];
 	    do{
-	    printf("\nINSIRA O NUMERO DE CAMPISTAS: ");
-	    scanf(" %d", &numeroCampistas);
+		    printf("\nINSIRA O NUMERO DE CAMPISTAS: ");
+		    scanf(" %d", &numeroCampistas);
 	    }while(numeroCampistas <=0);
 
-	        do{
-	    printf("DIAS DE ALOJAMENTO: ");
-	    scanf(" %d", &diasAlojamento);
+	    do{
+		    printf("DIAS DE ALOJAMENTO: ");
+		    scanf(" %d", &diasAlojamento);
 	    }while(diasAlojamento<=0);
 
 	    do{
-	    printf("\nTEM ELETRICIDADE?: [S]IM OU [N]AO");
-	    scanf(" %c", &tarifaUsada2);
-        }while(tarifaUsada2 != 's' || tarifaUsada2 !='S');
+		    printf("\nTEM ELETRICIDADE?: [S]IM OU [N]AO");
+		    scanf(" %c", &tarifaUsada2);
+        }while(tarifaUsada2 != 's' && tarifaUsada2 !='S' && tarifaUsada2 != 'N' && tarifaUsada2 !='n' );
 
 	    if (tarifaUsada2 == 's' || tarifaUsada2 == 'S')
 	    {
@@ -75,10 +76,9 @@
 	    }
 
         do{
-	    printf("\nINSIRA O TIPO DE ALOJAMENTO: [T]ENDA , [C]ARAVANA OU [A]UTOCARAVANA\n ");
-	    scanf(" %c", &tarifaUsada);
-	    toupper(tarifaUsada);
-        }while(tarifaUsada != 'T' || tarifaUsada != 'C' || tarifaUsada != 'A' || tarifaUsada != 't' || tarifaUsada != 'c' || tarifaUsada != 'a');
+		    printf("\nINSIRA O TIPO DE ALOJAMENTO: [T]ENDA , [C]ARAVANA OU [A]UTOCARAVANA\n ");
+		    scanf(" %c", &tarifaUsada);
+        }while(tarifaUsada != 'T' && tarifaUsada != 'C' && tarifaUsada != 'A' && tarifaUsada != 't' && tarifaUsada != 'c' && tarifaUsada != 'a');
 
 	    if (tarifaUsada == 'T' || tarifaUsada == 't')
 	    {
@@ -93,14 +93,16 @@
 	        somaTaxa += AUTOCARAVANA;
 	    }
 
-	    somaTaxa = somaTaxa*diasAlojamento;
-	    detalhesReserva.taxaPagar= somaTaxa;
+		    somaTaxa = somaTaxa*diasAlojamento+(numeroCampistas*CAMPISTAS);
+		    detalhesReserva.taxaPagar= somaTaxa;
 
+			printf("a taxa e: %f", somaTaxa);//####################
+			char nome2[50];
 	    do
 	    {
 	        fflush(stdin);
-	        printf("INSERIR PRIMEIRO NOME DO CLIENTE: ");
-			gets(dadosClientes.nome);
+	        printf("\nINSERIR PRIMEIRO NOME DO CLIENTE: ");
+			gets(nome2);
 			printf("\nINSERIR APELIDO DO CLIENTE: ");
 			gets(dadosClientes.apelido);
 	        printf("\nINSERIR IDADE DO CLIENTE: ");
@@ -109,6 +111,12 @@
 			contaCampistas++;
 			indiceNome++;
 	    } while(contaCampistas != numeroCampistas);
+
+	    //GRAVAÇAO DOS DADOS DO CLIENTE NO FICHEIRO
+	    FILE *ficheiro;
+ 	    ficheiro = fopen(nome2, "w");
+	    fprintf(ficheiro, "%s %s;%d;%.2f;%c%c%d;%c_%c;", nome2,dadosClientes.apelido,numeroCampistas, somaTaxa, tarifaUsada2, tarifaUsada, numeroCampistas,linha,coluna);
+	    fclose(ficheiro);
 	}
 
 	void consultarUmLote()
@@ -118,7 +126,6 @@
 
 	void mostraMapaDeLotes()
 	{
-
 	    printf("\nMAPA DE LOTES\n");
 		int i,j;
 
@@ -131,7 +138,7 @@
 		}
 		//############################################ TESTES
 		{
-		/*	strcpy(mapaLotes2[0][0], "tx1");
+			strcpy(mapaLotes2[0][0], "tx1");
 			strcpy(mapaLotes2[0][1], "tx1");
 			strcpy(mapaLotes2[0][2], "tx1");
 			strcpy(mapaLotes2[0][3], "tx1");
@@ -159,21 +166,22 @@
 			strcpy(mapaLotes2[4][1], "tx1");
 			strcpy(mapaLotes2[4][2], "tx1");
 			strcpy(mapaLotes2[4][3], "tx1");
-			strcpy(mapaLotes2[4][4], "tx1");*/}
+			strcpy(mapaLotes2[4][4], "tx1");}
 		//############################################
 	  printf("************* Lotes ************* \n\n");
 	  printf("   |  1  |  2  |  3  |  4  |  5  \n");
 
-	  for ( i=0; i<5; i++ )
+	  for ( i=0; i<NUMLINHAS; i++)
 	  {
 	    printf("%d -",i+1);
-		    for ( j=0; j<5; j++ )
+		    for ( j=0; j < NUMLINHAS; j++ )
 		    {
 		      printf ("| %s ",mapaLotes2[ i ][ j ]);
 		    }
 		    printf("\n");
 	  }
-	  return 0;
+	  printf("Pressione uma tecla para voltar ao menu");
+	  getch();
 	}
 
 	//PAGINA DO MENU CENTRAL
