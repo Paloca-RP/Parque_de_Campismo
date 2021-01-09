@@ -115,13 +115,74 @@
 	    //GRAVAÇAO DOS DADOS DO CLIENTE NO FICHEIRO
 	    FILE *ficheiro;
  	    ficheiro = fopen(nome2, "w");
-	    fprintf(ficheiro, "%s %s;%d;%.2f;%c%c%d;%c_%c;", nome2,dadosClientes.apelido,numeroCampistas, somaTaxa, tarifaUsada2, tarifaUsada, numeroCampistas,linha,coluna);
+	    fprintf(ficheiro, "%s %s;;%.2f;%c%c%d;%c_%c;", nome2,dadosClientes.apelido, somaTaxa, tarifaUsada2, tarifaUsada, linha,coluna);
 	    fclose(ficheiro);
 	}
 
 	void consultarUmLote()
 	{
+		char nomeficheiro[50];
+		printf("Inisra o nome do Campista: ");
+		scanf("%s", nomeficheiro);
+	///////////////////////////
+		char nome[100];
+	    char apelido[100];
+	    int idade;
+	    int numcampistas;
+		int somaTaxa;
+		char tarifaUsada2[100];
+		char tarifaUsada[100];
+		int linha1;
+		int coluna1;	
+			
+		FILE *fp;
+		fp = fopen(nomeficheiro,"r");
+		
+		if(fp != NULL){
+			//fscanf(fp, "Idade: %d\n", &idade );
+			fscanf(fp, "Nome: %s\n", nome );
+			fscanf(fp, "Apelido: %s\n", apelido );			
+			fscanf(fp, "Total da Reserva: %d\n", &somaTaxa );		    
+			fscanf(fp, "Electricidade: %s\n", tarifaUsada2 );
+			fscanf(fp, "Alojamento: %s\n", tarifaUsada );
+			fscanf(fp, "Numero de campistas: %d\n", &numcampistas );
+			fscanf(fp, "Linha: %d\n", &linha1 );
+			fscanf(fp, "Coluna: %d\n", &coluna1 );
+			fclose(fp);
+		}
+		else{
+		    printf("Campista não existe");
+		}
+		
+			printf("Idade: %d\n", idade );
+			printf("Nome: %s\n", nome );
+			printf("Apelido: %s\n", apelido );
+			printf("Numero de campistas: %d\n",numcampistas );
+			printf("Total da Reserva: %d\n", somaTaxa );		    
+			printf("Electricidade: %s\n", tarifaUsada2 );
+			printf("Alojamento: %s\n", tarifaUsada );
+			printf("Linha: %d\n", linha1 );
+			printf("Coluna: %d\n", coluna1 );
+		    
+		    fclose(fp);
+        getch();
+        //////////////////////////////////////////////
+		int linha, coluna;
+		mostraMapaDeLotes();
+			printf("\nInsira as posições:\n");
+			printf("Insira a linha: ");
+				scanf("%d", &linha);
+			linha--;
+			printf("Insira a coluna: ");
+				scanf("%d", &coluna);
+			coluna--;
 
+		printf(" %s ", mapaLotes2[linha][coluna]);
+		
+	
+		
+		getch();
+		printf("ola");
 	}
 
 	void mostraMapaDeLotes()
