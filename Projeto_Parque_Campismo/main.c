@@ -5,7 +5,7 @@
 #include <locale.h>
 #include <ctype.h>
 
-//Matriz
+//CONSTANTES
 #define NUMLINHAS 5
 #define NUMCOLUNAS 5
 #define TAMANHO_STRING 5
@@ -13,7 +13,7 @@
 #define NUMLOTES 25
 #define TAMANHO_NOME 20
 
-//TAXAS
+//TAXAS A APLICAR
 #define TENDA 4.50
 #define CARAVANA 6
 #define AUTOCARAVANA 14.90
@@ -39,25 +39,25 @@ struct detalhesReserva{
     float taxaPagar;
 
 };
-	
+
 /////////////////////////////////////////////////////////////////////////////
 
 	void reservarUmLote(){
-		
+
 	    fflush(stdin);
 	    struct clientes dadosClientes;
 	    struct detalhesReserva detalhesReserva;
 
-	    int numeroCampistas, contaCampistas=0, indiceNome=0;
-	    int linha = 0, coluna = 0;
-	    int diasAlojamento;
+	    int numeroCampistas, contaCampistas=0, indiceNome=0, linha = 0, coluna = 0, diasAlojamento;
 	    float somaTaxa=0;
 	    char tarifaUsada, tarifaUsada2;
 
+        //Aqui começa a inserção dos dados da reserva
 	    printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
-	    scanf("%d", &linha);scanf("%d", &coluna);
+	    scanf("%d", &linha);scanf("d", &coluna);
 
         mapaLotes2[linha][coluna];
+
 	    do{
 		    printf("\nINSIRA O NUMERO DE CAMPISTAS: ");
 		    scanf(" %d", &numeroCampistas);
@@ -99,7 +99,7 @@ struct detalhesReserva{
 		    somaTaxa = somaTaxa*diasAlojamento+(numeroCampistas*CAMPISTAS);
 		    detalhesReserva.taxaPagar= somaTaxa;
 
-			printf("a taxa e: %f", somaTaxa);//####################
+			printf("O TOTAL A PAGAR DA RESERVA É DE %.2f EUROS", somaTaxa);
 			char nome2[50];
 	    do
 	    {
@@ -121,12 +121,14 @@ struct detalhesReserva{
 	    //fprintf(ficheiro, "%s\n%s\n%.2f\n%2c\n%c\n%d\n%d", nome2,dadosClientes.apelido, somaTaxa, tarifaUsada2, tarifaUsada, linha,coluna);
 		fprintf(ficheiro, "Nome : %s , Apelido : %s , Total : %.2f , Electricidade : %c , Alojamento : %c , Campistas : %d , Linha : %d , Coluna : %d ",nome2, dadosClientes.apelido, somaTaxa, tarifaUsada2, tarifaUsada, numeroCampistas, linha, coluna);
 	    fclose(ficheiro);
+
+	    //FICA A FALTAR CRIAR O FICHEIRO PARA O LOTE
 	}
-	
+
 /////////////////////////////////////////////////////////////////////////////
 
 	void mostraMapaDeLotes(){
-		
+
 	    printf("\nMAPA DE LOTES\n");
 		int i,j;
 
@@ -184,14 +186,14 @@ struct detalhesReserva{
 	  printf("Pressione uma tecla para voltar ao menu");
 	  getch();
 	}
-	
+
 /////////////////////////////////////////////////////////////////////////////
 
 	void consultarUmLote(){
-		
+
 		int linha, coluna;
 		mostraMapaDeLotes();
-			printf("\nInsira as posi��es:\n");
+			printf("\nInsira as posiçoes:\n");
 			printf("Insira a linha: ");
 				scanf("%d", &linha);
 			linha--;
@@ -200,20 +202,20 @@ struct detalhesReserva{
 			coluna--;
 
 		printf(" %s ", mapaLotes2[linha][coluna]);
-		
+
 		getch();
 		printf("ola");
 	}
 
 /////////////////////////////////////////////////////////////////////////////
-	
+
 	void consultarPorCampista(){
-		
+
 		//nome do campista
-		char nomeficheiro[50]; 
+		char nomeficheiro[50];
 		printf("Inisra o nome do Campista: ");
 		scanf("%s", nomeficheiro);
-		
+
 	//variaveis de Transicaoo de ficheiro para o programa
 		char nome[100];
 	    char apelido[100];
@@ -222,24 +224,24 @@ struct detalhesReserva{
 		char tarifaUsada2;
 		char tarifaUsada;
 		int linha1;
-		int coluna1;	
-			
+		int coluna1;
+
 		FILE *fp;
 		fp = fopen(nomeficheiro,"r");
-		
+
 		if(fp != NULL){
-			
+
 			fscanf(fp, "Nome : %s , Apelido : %s , Total : %.2f , Electricidade : %c , Alojamento : %c , Campistas : %d , Linha : %d , Coluna : %d ", nome, apelido, &somaTaxa, tarifaUsada2, tarifaUsada, &numcampistas, &linha1, &coluna1 );
-			
+
 			printf("Nome: %s\n", nome );
 			printf("Apelido: %s\n", apelido );
 			printf("Numero de campistas: %d\n",numcampistas );
-			printf("Total da Reserva: %.2f\n", somaTaxa );		    
+			printf("Total da Reserva: %.2f\n", somaTaxa );
 			printf("Electricidade: %c\n", tarifaUsada2 );
 			printf("Alojamento: %c\n", tarifaUsada );
 			printf("Linha: %d\n", linha1 );
 			printf("Coluna: %d\n", coluna1 );
-		    
+
 		    fclose(fp);
 		}
 		else{
@@ -247,10 +249,10 @@ struct detalhesReserva{
 		}
         getch();
 	}
-	
+
 /////////////////////////////////////////////////////////////////////////////
 
-	//PAGINA DO MENU CENTRAL           
+	//PAGINA DO MENU CENTRAL
 	int main()
 	{
 	    fflush(stdin);
@@ -270,7 +272,7 @@ struct detalhesReserva{
 			printf("  |   6- Libertar um lote             |\n");
 			printf("  |   7- Sair                         |\n");
 		    printf("  |-----------------------------------|\n");
-		    printf("Insira uma op�ao que pretende:  ");
+		    printf("Insira uma opçao que pretende:  ");
 			scanf("%d", &menu);
 
 		    switch(menu)
@@ -291,7 +293,7 @@ struct detalhesReserva{
 			    	system("cls");
 			    	consultarPorCampista();
 			    	break;
-			    
+
 		    }
 	} while (menu != 7);
 	return 0;
