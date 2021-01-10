@@ -1,58 +1,61 @@
 #include <stdio.h>
-	#include <conio.h>
-	#include <stdlib.h>
-	#include <string.h>
-	#include <locale.h>
-	#include <ctype.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
+#include <ctype.h>
 
-	#define NUMLINHAS 5
-	#define NUMCOLUNAS 5
-	#define TAMANHO_STRING 5
+//Matriz
+#define NUMLINHAS 5
+#define NUMCOLUNAS 5
+#define TAMANHO_STRING 5
 
-	#define NUMLOTES 25
-	#define TAMANHO_NOME 20
+#define NUMLOTES 25
+#define TAMANHO_NOME 20
 
-	//TAXAS
-	#define TENDA 4.50
-	#define CARAVANA 6
-	#define AUTOCARAVANA 14.90
-	#define ELETRICIDADE 3
-	#define CAMPISTAS 3.50
+//TAXAS
+#define TENDA 4.50
+#define CARAVANA 6
+#define AUTOCARAVANA 14.90
+#define ELETRICIDADE 3
+#define CAMPISTAS 3.50
 
-	struct clientes{
-	    char nome[TAMANHO_NOME];
-	    char apelido[TAMANHO_NOME];
-	    int idade;
-	    int rua;
-	    int lote;
-	};
+char mapaLotes2[NUMLINHAS][NUMCOLUNAS][TAMANHO_STRING];
 
-	struct detalhesReserva{
+struct clientes{
+    char nome[TAMANHO_NOME];
+    char apelido[TAMANHO_NOME];
+    int idade;
+    int rua;
+    int lote;
+};
 
-	    char TipoAlojamento;
-	    char nomeCampista[TAMANHO_NOME];
-	    char apelidoCampista[TAMANHO_NOME];
-	    char loteAlojado;
-	    float taxaPagar;
+struct detalhesReserva{
 
-	};
-	//char mapaLotes[NUMLINHAS][NUMCOLUNAS];
-	char mapaLotes2[NUMLINHAS][NUMCOLUNAS][TAMANHO_STRING];
+    char TipoAlojamento;
+    char nomeCampista[TAMANHO_NOME];
+    char apelidoCampista[TAMANHO_NOME];
+    char loteAlojado;
+    float taxaPagar;
 
-	void reservarUmLote()
-	{
+};
+	
+/////////////////////////////////////////////////////////////////////////////
+
+	void reservarUmLote(){
+		
 	    fflush(stdin);
 	    struct clientes dadosClientes;
 	    struct detalhesReserva detalhesReserva;
 
 	    int numeroCampistas, contaCampistas=0, indiceNome=0;
-	    char linha, coluna;
+	    int linha = 0, coluna = 0;
 	    int diasAlojamento;
 	    float somaTaxa=0;
 	    char tarifaUsada, tarifaUsada2;
 
 	    printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
-	    scanf("%c %c", &linha, &coluna);
+	    scanf("%d", &linha);scanf("%d", &coluna);
 
         mapaLotes2[linha][coluna];
 	    do{
@@ -112,81 +115,18 @@
 			indiceNome++;
 	    } while(contaCampistas != numeroCampistas);
 
-	    //GRAVAÇAO DOS DADOS DO CLIENTE NO FICHEIRO
+	    //GRAVAï¿½AO DOS DADOS DO CLIENTE NO FICHEIRO
 	    FILE *ficheiro;
  	    ficheiro = fopen(nome2, "w");
-	    fprintf(ficheiro, "%s %s;;%.2f;%c%c%d;%c_%c;", nome2,dadosClientes.apelido, somaTaxa, tarifaUsada2, tarifaUsada, linha,coluna);
+	    //fprintf(ficheiro, "%s\n%s\n%.2f\n%2c\n%c\n%d\n%d", nome2,dadosClientes.apelido, somaTaxa, tarifaUsada2, tarifaUsada, linha,coluna);
+		fprintf(ficheiro, "Nome : %s , Apelido : %s , Total : %.2f , Electricidade : %c , Alojamento : %c , Campistas : %d , Linha : %d , Coluna : %d ",nome2, dadosClientes.apelido, somaTaxa, tarifaUsada2, tarifaUsada, numeroCampistas, linha, coluna);
 	    fclose(ficheiro);
 	}
-
-	void consultarUmLote()
-	{
-		char nomeficheiro[50];
-		printf("Inisra o nome do Campista: ");
-		scanf("%s", nomeficheiro);
-	///////////////////////////
-		char nome[100];
-	    char apelido[100];
-	    int idade;
-	    int numcampistas;
-		int somaTaxa;
-		char tarifaUsada2[100];
-		char tarifaUsada[100];
-		int linha1;
-		int coluna1;	
-			
-		FILE *fp;
-		fp = fopen(nomeficheiro,"r");
-		
-		if(fp != NULL){
-			//fscanf(fp, "Idade: %d\n", &idade );
-			fscanf(fp, "Nome: %s\n", nome );
-			fscanf(fp, "Apelido: %s\n", apelido );			
-			fscanf(fp, "Total da Reserva: %d\n", &somaTaxa );		    
-			fscanf(fp, "Electricidade: %s\n", tarifaUsada2 );
-			fscanf(fp, "Alojamento: %s\n", tarifaUsada );
-			fscanf(fp, "Numero de campistas: %d\n", &numcampistas );
-			fscanf(fp, "Linha: %d\n", &linha1 );
-			fscanf(fp, "Coluna: %d\n", &coluna1 );
-			fclose(fp);
-		}
-		else{
-		    printf("Campista não existe");
-		}
-		
-			printf("Idade: %d\n", idade );
-			printf("Nome: %s\n", nome );
-			printf("Apelido: %s\n", apelido );
-			printf("Numero de campistas: %d\n",numcampistas );
-			printf("Total da Reserva: %d\n", somaTaxa );		    
-			printf("Electricidade: %s\n", tarifaUsada2 );
-			printf("Alojamento: %s\n", tarifaUsada );
-			printf("Linha: %d\n", linha1 );
-			printf("Coluna: %d\n", coluna1 );
-		    
-		    fclose(fp);
-        getch();
-        //////////////////////////////////////////////
-		int linha, coluna;
-		mostraMapaDeLotes();
-			printf("\nInsira as posições:\n");
-			printf("Insira a linha: ");
-				scanf("%d", &linha);
-			linha--;
-			printf("Insira a coluna: ");
-				scanf("%d", &coluna);
-			coluna--;
-
-		printf(" %s ", mapaLotes2[linha][coluna]);
-		
 	
-		
-		getch();
-		printf("ola");
-	}
+/////////////////////////////////////////////////////////////////////////////
 
-	void mostraMapaDeLotes()
-	{
+	void mostraMapaDeLotes(){
+		
 	    printf("\nMAPA DE LOTES\n");
 		int i,j;
 
@@ -244,8 +184,73 @@
 	  printf("Pressione uma tecla para voltar ao menu");
 	  getch();
 	}
+	
+/////////////////////////////////////////////////////////////////////////////
 
-	//PAGINA DO MENU CENTRAL
+	void consultarUmLote(){
+		
+		int linha, coluna;
+		mostraMapaDeLotes();
+			printf("\nInsira as posiï¿½ï¿½es:\n");
+			printf("Insira a linha: ");
+				scanf("%d", &linha);
+			linha--;
+			printf("Insira a coluna: ");
+				scanf("%d", &coluna);
+			coluna--;
+
+		printf(" %s ", mapaLotes2[linha][coluna]);
+		
+		getch();
+		printf("ola");
+	}
+
+/////////////////////////////////////////////////////////////////////////////
+	
+	void consultarPorCampista(){
+		
+		//nome do campista
+		char nomeficheiro[50]; 
+		printf("Inisra o nome do Campista: ");
+		scanf("%s", nomeficheiro);
+		
+	//variaveis de Transicaoo de ficheiro para o programa
+		char nome[100];
+	    char apelido[100];
+	    int numcampistas;
+		float somaTaxa;
+		char tarifaUsada2;
+		char tarifaUsada;
+		int linha1;
+		int coluna1;	
+			
+		FILE *fp;
+		fp = fopen(nomeficheiro,"r");
+		
+		if(fp != NULL){
+			
+			fscanf(fp, "Nome : %s , Apelido : %s , Total : %.2f , Electricidade : %c , Alojamento : %c , Campistas : %d , Linha : %d , Coluna : %d ", nome, apelido, &somaTaxa, tarifaUsada2, tarifaUsada, &numcampistas, &linha1, &coluna1 );
+			
+			printf("Nome: %s\n", nome );
+			printf("Apelido: %s\n", apelido );
+			printf("Numero de campistas: %d\n",numcampistas );
+			printf("Total da Reserva: %.2f\n", somaTaxa );		    
+			printf("Electricidade: %c\n", tarifaUsada2 );
+			printf("Alojamento: %c\n", tarifaUsada );
+			printf("Linha: %d\n", linha1 );
+			printf("Coluna: %d\n", coluna1 );
+		    
+		    fclose(fp);
+		}
+		else{
+		    printf("Campista nï¿½o existe");
+		}
+        getch();
+	}
+	
+/////////////////////////////////////////////////////////////////////////////
+
+	//PAGINA DO MENU CENTRAL           
 	int main()
 	{
 	    fflush(stdin);
@@ -265,7 +270,7 @@
 			printf("  |   6- Libertar um lote             |\n");
 			printf("  |   7- Sair                         |\n");
 		    printf("  |-----------------------------------|\n");
-		    printf("Insira uma opçao que pretende:  ");
+		    printf("Insira uma opï¿½ao que pretende:  ");
 			scanf("%d", &menu);
 
 		    switch(menu)
@@ -282,7 +287,14 @@
 			        system("cls");
 			        consultarUmLote();
 			        break;
+			    case 4:
+			    	system("cls");
+			    	consultarPorCampista();
+			    	break;
+			    
 		    }
 	} while (menu != 7);
 	return 0;
 	}
+
+
