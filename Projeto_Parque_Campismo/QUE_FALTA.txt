@@ -1,0 +1,8 @@
+->fazer for que percorrrer array da  structs para inserir num ficheiro no final do programa
+
+-> Inserir, Editar, Remover cenas das structs;
+
+->matriz esta a fazer coluna/kinha (matrix[y][x]);
+
+
+
