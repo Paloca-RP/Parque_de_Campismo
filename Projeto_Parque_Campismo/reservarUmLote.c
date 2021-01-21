@@ -4,7 +4,7 @@
 #include <string.h>
 #include <locale.h>
 #include <ctype.h>
- 
+
 //CONSTANTES
 #define NUMLINHAS 5
 #define NUMCOLUNAS 5
@@ -19,34 +19,35 @@
 #define AUTOCARAVANA 14.90
 #define ELETRICIDADE 3
 #define CAMPISTAS 3.50
+#include "struct.h"
 
-char mapaLotes2[NUMLINHAS][NUMCOLUNAS][TAMANHO_STRING];
 
-	void reservarUmLote(){
+    //Esta função vai receber todos os dados relativos á reserva
+	void reservarUmLote(Lote *lote){
 
-	    fflush(stdin);
-	    struct clientes dadosClientes;
-	    struct detalhesReserva detalhesReserva;
-
+        setlocale(LC_ALL, "Portuguese");
 	    int numeroCampistas, contaCampistas=0, indiceNome=0, linha = 0, coluna = 0, diasAlojamento;
 	    float somaTaxa=0;
 	    char tarifaUsada, tarifaUsada2;
 
-        //Aqui começa a inserção dos dados da reserva
-	    printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
-	    scanf("%d", &linha);scanf("d", &coluna);
-
-        mapaLotes2[linha][coluna];
-
-	    do{
+	     do{
 		    printf("\nINSIRA O NUMERO DE CAMPISTAS: ");
 		    scanf(" %d", &numeroCampistas);
 	    }while(numeroCampistas <=0);
+
+	    printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
+	    scanf("%d", &linha);scanf("%d", &coluna);
+
+	       //DECREMENTO DO INDICE DA MATRIZ//
+            linha--;
+            coluna--;
+
 
 	    do{
 		    printf("DIAS DE ALOJAMENTO: ");
 		    scanf(" %d", &diasAlojamento);
 	    }while(diasAlojamento<=0);
+
 
 	    do{
 		    printf("\nTEM ELETRICIDADE?: [S]IM OU [N]AO");
@@ -77,31 +78,19 @@ char mapaLotes2[NUMLINHAS][NUMCOLUNAS][TAMANHO_STRING];
 	    }
 
 		    somaTaxa = somaTaxa*diasAlojamento+(numeroCampistas*CAMPISTAS);
-		    detalhesReserva.taxaPagar= somaTaxa;
 
 			printf("O TOTAL A PAGAR DA RESERVA É DE %.2f EUROS", somaTaxa);
-			char nome2[50];
-	
-	    do
-	    {
-	        fflush(stdin);
-	        printf("\nINSERIR PRIMEIRO NOME DO CLIENTE: ");
-			gets(nome2);
-			printf("\nINSERIR APELIDO DO CLIENTE: ");
-			gets(dadosClientes.apelido);
-	        printf("\nINSERIR IDADE DO CLIENTE: ");
-			scanf(" %d",&dadosClientes.idade);
 
-			contaCampistas++;
-			indiceNome++;
-	    } while(contaCampistas != numeroCampistas);
-
-	    //GRAVA�AO DOS DADOS DO CLIENTE NO FICHEIRO
-	    FILE *ficheiro;
- 	    ficheiro = fopen(nome2, "w");
-	    //fprintf(ficheiro, "%s\n%s\n%.2f\n%2c\n%c\n%d\n%d", nome2,dadosClientes.apelido, somaTaxa, tarifaUsada2, tarifaUsada, linha,coluna);
-		fprintf(ficheiro, "Nome : %s , Apelido : %s , Total : %.2f , Electricidade : %c , Alojamento : %c , Campistas : %d , Linha : %d , Coluna : %d ",nome2, dadosClientes.apelido, somaTaxa, tarifaUsada2, tarifaUsada, numeroCampistas, linha, coluna);
-	    fclose(ficheiro);
-
-	    //FICA A FALTAR CRIAR O FICHEIRO PARA O LOTE
+            for(int i=0; i<numeroCampistas;i++)
+            {
+                fflush(stdin);
+                printf("\nINSERIR NOME COMPLETO DO CLIENTE: ");
+                gets(mapaLotes[linha][coluna].campistas[i].nome);
+                printf("\nINSERIR IDADE DO CLIENTE: ");
+                scanf(" %d",&mapaLotes[linha][coluna].campistas[i].idade);
+                printf("\nINSERIR NUMERO DE IDENTIFICAÇÃO CIVIL: ");
+                scanf(" %d",&mapaLotes[linha][coluna].campistas[i].cc);
+                printf("\nINSERIR NIF: ");
+                scanf(" %d",&mapaLotes[linha][coluna].campistas[i].nif);
+           }
 	}

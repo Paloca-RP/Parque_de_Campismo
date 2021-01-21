@@ -31,9 +31,22 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="consultarPorCampista.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="consultarUmLote.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="mostraMapaLotes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="reservarUmLote.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="struct.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

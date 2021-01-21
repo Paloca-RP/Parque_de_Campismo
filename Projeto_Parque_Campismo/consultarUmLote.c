@@ -19,3 +19,24 @@
 #define AUTOCARAVANA 14.90
 #define ELETRICIDADE 3
 #define CAMPISTAS 3.50
+
+/*
+void consultarUmLote(){
+
+		int linha, coluna;
+		mostraMapaDeLotes();
+			printf("\nInsira as posiçoes:\n");
+			printf("Insira a linha: ");
+				scanf("%d", &linha);
+			linha--;
+			printf("Insira a coluna: ");
+				scanf("%d", &coluna);
+			coluna--;
+
+		printf(" %s ", mapaLotes2[linha][coluna]);
+
+		getch();
+		printf("ola");
+	}
+	*/
+

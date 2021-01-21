@@ -19,3 +19,28 @@
 #define AUTOCARAVANA 14.90
 #define ELETRICIDADE 3
 #define CAMPISTAS 3.50
+
+
+typedef struct{
+   char nome[TAMANHO_NOME];
+   int idade;
+   int cc;
+   int nif;
+}Campista;
+
+typedef struct{
+    char tipoAlojamento;
+    int diasAlojamento;
+    float taxaPagar;
+    Campista campistas[6];
+}Lote;
+
+Lote mapaLotes[NUMLINHAS][NUMCOLUNAS];
+void reservarUmLote(Lote *lote);
+
+
+
+
+
+
+

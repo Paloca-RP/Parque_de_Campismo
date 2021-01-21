@@ -6,7 +6,49 @@
 	<string.h>
 	<locale.h>
 
-1610295078 source:c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\main.c
+1611220777 source:c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\main.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+	<ctype.h>
+	"struct.h"
+
+1611219408 source:c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\consultarporcampista.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+	<ctype.h>
+
+1611167811 source:c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\consultarumlote.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+	<ctype.h>
+
+1611167934 source:c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\mostramapalotes.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+	<ctype.h>
+
+1611222779 source:c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\reservarumlote.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+	<ctype.h>
+	"struct.h"
+
+1611220462 c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\struct.h
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
