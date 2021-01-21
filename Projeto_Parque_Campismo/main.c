@@ -4,11 +4,15 @@
 #include <string.h>
 #include <locale.h>
 #include <ctype.h>
-#include "struct.h"
 
+#define NUMLINHAS 5
+#define NUMCOLUNAS 5
+
+#include "struct.h"
 	//PAGINA DO MENU CENTRAL
 	int main()
 	{
+	    Lote mapaLotes[NUMLINHAS][NUMCOLUNAS];
 	    fflush(stdin);
 		setlocale(LC_ALL, "Portuguese");
 	    int menu;

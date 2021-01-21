@@ -23,8 +23,7 @@
 
 
     //Esta função vai receber todos os dados relativos á reserva
-	void reservarUmLote(Lote *lote){
-
+	void reservarUmLote(Lote mapaLotes[][NUMCOLUNAS]){
         setlocale(LC_ALL, "Portuguese");
 	    int numeroCampistas, contaCampistas=0, indiceNome=0, linha = 0, coluna = 0, diasAlojamento;
 	    float somaTaxa=0;
@@ -38,11 +37,9 @@
 	    printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
 	    scanf("%d", &linha);scanf("%d", &coluna);
 
-	       //DECREMENTO DO INDICE DA MATRIZ//
+	       //DECREMENTO DO INDICE DA MATRIZ. Por exemplo se a pessoa insere 1-2 vai ser no indice 0-1 da matriz//
             linha--;
             coluna--;
-
-
 	    do{
 		    printf("DIAS DE ALOJAMENTO: ");
 		    scanf(" %d", &diasAlojamento);

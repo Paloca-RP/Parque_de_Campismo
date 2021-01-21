@@ -35,9 +35,6 @@ typedef struct{
     Campista campistas[6];
 }Lote;
 
-Lote mapaLotes[NUMLINHAS][NUMCOLUNAS];
-void reservarUmLote(Lote *lote);
-
 
 
 
