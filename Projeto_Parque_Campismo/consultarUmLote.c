@@ -21,10 +21,10 @@
 #define CAMPISTAS 3.50
 
 
-void consultarUmLote(){
+/*void consultarUmLote(Lote mapaLotes[][NUMCOLUNAS]){
 
 		int linha, coluna;
-		//mostraMapaDeLotes();
+		mostraMapaDeLotes();
 			printf("\nInsira as posiçoes:\n");
 			printf("Insira a linha: ");
 				scanf("%d", &linha);
@@ -32,8 +32,7 @@ void consultarUmLote(){
 			printf("Insira a coluna: ");
 				scanf("%d", &coluna);
 			coluna--;
-
 		getch();
 		printf("ola");
 	}
-
+*/

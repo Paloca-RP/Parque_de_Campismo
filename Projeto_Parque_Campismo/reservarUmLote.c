@@ -82,6 +82,10 @@
 		    mapaLotes[linha][coluna].diasAlojamento = diasAlojamento;
 		    mapaLotes[linha][coluna].taxaPagar= somaTaxa;
 
+            mapaLotes[linha][coluna].tipoAlojamento = "tx4";
+
+
+
 			printf("O TOTAL A PAGAR DA RESERVA É DE %.2f EUROS", somaTaxa);
 
             for(int i=0; i<numeroCampistas;i++)

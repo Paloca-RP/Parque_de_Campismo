@@ -18,9 +18,10 @@
 #define AUTOCARAVANA 14.90
 #define ELETRICIDADE 3
 #define CAMPISTAS 3.50
+#include "struct.h"
 ////////////////////////////////////
-/*
-	void mostraMapaDeLotes(){
+
+void mostraMapaDeLotes(Lote mapaLotes[][NUMCOLUNAS]){
 
 	    printf("\nMAPA DE LOTES\n");
 		int i,j;
@@ -29,11 +30,13 @@
 	   {
 		    for ( j=0; j<5; j++ )
 		    {
-		    	strcpy(mapaLotes[i][j], "...");
+                strcpy(mapaLotes[i][j].tipoAlojamento, "...");
 		    }
 		}
-		//############################################ TESTES
+
 		{
+		    mapaLotes[i][j].tipoAlojamento;
+		    /*
 			strcpy(mapaLotes2[0][0], "tx1");
 			strcpy(mapaLotes2[0][1], "tx1");
 			strcpy(mapaLotes2[0][2], "tx1");
@@ -62,7 +65,7 @@
 			strcpy(mapaLotes2[4][1], "tx1");
 			strcpy(mapaLotes2[4][2], "tx1");
 			strcpy(mapaLotes2[4][3], "tx1");
-			strcpy(mapaLotes2[4][4], "tx1");}
+			strcpy(mapaLotes2[4][4], "tx1")*/}
 		//############################################
 	  printf("************* Lotes ************* \n\n");
 	  printf("   |  1  |  2  |  3  |  4  |  5  \n");
@@ -72,11 +75,10 @@
 	    printf("%d -",i+1);
 		    for ( j=0; j < NUMLINHAS; j++ )
 		    {
-		      printf ("| %s ",mapaLotes2[ i ][ j ]);
+		      printf ("| %s ",mapaLotes[i][j].tipoAlojamento);
 		    }
 		    printf("\n");
 	  }
 	  printf("Pressione uma tecla para voltar ao menu");
 	  getch();
 	}
-*/
