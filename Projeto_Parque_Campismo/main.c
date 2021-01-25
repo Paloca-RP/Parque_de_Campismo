@@ -45,7 +45,7 @@
 			        break;
 			    case 3:
 			        system("cls");
-			        //reservarUmLote();
+			        //consultarUmLote(&mapaLotes);
 			        break;
 			    case 4:
 			    	system("cls");

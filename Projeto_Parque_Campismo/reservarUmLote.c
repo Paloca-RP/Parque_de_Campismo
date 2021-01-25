@@ -43,6 +43,7 @@
 	    do{
 		    printf("DIAS DE ALOJAMENTO: ");
 		    scanf(" %d", &diasAlojamento);
+
 	    }while(diasAlojamento<=0);
 
 
@@ -74,7 +75,12 @@
 	        somaTaxa += AUTOCARAVANA;
 	    }
 
+            //FORMULA PARA CALCULO DA TAXA A PAGAR
 		    somaTaxa = somaTaxa*diasAlojamento+(numeroCampistas*CAMPISTAS);
+
+
+		    mapaLotes[linha][coluna].diasAlojamento = diasAlojamento;
+		    mapaLotes[linha][coluna].taxaPagar= somaTaxa;
 
 			printf("O TOTAL A PAGAR DA RESERVA É DE %.2f EUROS", somaTaxa);
 

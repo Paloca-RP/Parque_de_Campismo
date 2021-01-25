@@ -20,11 +20,11 @@
 #define ELETRICIDADE 3
 #define CAMPISTAS 3.50
 
-/*
+
 void consultarUmLote(){
 
 		int linha, coluna;
-		mostraMapaDeLotes();
+		//mostraMapaDeLotes();
 			printf("\nInsira as posiçoes:\n");
 			printf("Insira a linha: ");
 				scanf("%d", &linha);
@@ -33,10 +33,7 @@ void consultarUmLote(){
 				scanf("%d", &coluna);
 			coluna--;
 
-		printf(" %s ", mapaLotes2[linha][coluna]);
-
 		getch();
 		printf("ola");
 	}
-	*/
 
