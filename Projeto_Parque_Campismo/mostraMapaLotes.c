@@ -42,7 +42,7 @@ void mostraMapaDeLotes(Lote mapaLotes[][NUMCOLUNAS]){
         printf("%d -",i+1);
             for ( j=0; j < NUMLINHAS; j++ )
             {
-              printf ("| %s ",mapaLotes[i][j].tipoAlojamento);
+              printf ("|%s ",mapaLotes[i][j].tipoAlojamento);
             }
             printf("\n");
       }

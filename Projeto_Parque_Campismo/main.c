@@ -34,8 +34,8 @@
 		    switch(menu)
 		    {
 			    case 1:
-			        //system("cls");
-			        //mostraMapaDeLotes(&mapaLotes);
+			        system("cls");
+			        mostraMapaDeLotes(&mapaLotes);
 			        break;
 			    case 2:
 			        system("cls");

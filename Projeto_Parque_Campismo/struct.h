@@ -36,9 +36,9 @@ typedef struct{
     Campista campistas[6];
 }Lote;
 
-
-
-
+//void inicializarMapa(Lote mapaLotes[][NUMCOLUNAS]);
+//void gravarLote();
+//void carregaLote();
 
 
 

@@ -46,6 +46,9 @@
 		<Unit filename="reservarUmLote.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="struct.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="struct.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

@@ -41,15 +41,16 @@ void consultarUmLote(Lote mapaLotes[][NUMCOLUNAS]){
                 printf("|Numero de Campistas no lote     %d:   |\n", mapaLotes[linha][coluna].nCamp);
                 printf("---------------------------------------|");
 
-			for(int i=0; i<numeroCampistas; i++)
-            {
-                printf("------------------------------|");
-                printf("|DADOS DO CAMPISTA %d         |\n", i+1);
-                printf("|NOME : %s                    |\n",mapaLotes[linha][coluna].campistas[i].nome);
-                printf("|IDADE : %d                   |\n",mapaLotes[linha][coluna].campistas[i].idade);
-                printf("|NIF : %d                     |\n",mapaLotes[linha][coluna].campistas[i].nif);
-                printf("|CC: %d                       |\n",mapaLotes[linha][coluna].campistas[i].cc);
-                printf("------------------------------|");
-            }
+                for(int i=0; i<numeroCampistas; i++)
+                {
+                    printf("------------------------------|");
+                    printf("|DADOS DO CAMPISTA %d         |\n", i+1);
+                    printf("|NOME : %s                    |\n",mapaLotes[linha][coluna].campistas[i].nome);
+                    printf("|IDADE : %d                   |\n",mapaLotes[linha][coluna].campistas[i].idade);
+                    printf("|NIF : %d                     |\n",mapaLotes[linha][coluna].campistas[i].nif);
+                    printf("|CC: %d                       |\n",mapaLotes[linha][coluna].campistas[i].cc);
+                    printf("------------------------------|");
+                }
+
 		getch();
 	}
