@@ -37,6 +37,9 @@
 		<Unit filename="consultarUmLote.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="editarLote.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -25,21 +25,51 @@ void consultarUmLote(Lote mapaLotes[][NUMCOLUNAS]){
 
 		int linha, coluna;
 		//mostraMapaDeLotes();
+		 upa:
 			printf("\nInsira as posiçoes:\n");
+			linnhas:
 			printf("Insira a linha: ");
 				scanf("%d", &linha);
-			linha--;
-			printf("Insira a coluna: ");
-				scanf("%d", &coluna);
-			coluna--;
+            if(linha <= 0 || linha > NUMLINHAS)
+            {
+                  printf("Numero de Linha Errado");
+                    goto linnhas;
+            }
+            else
+            {
+                linha--;
+                coluna:
+                printf("Insira a coluna: ");
+                    scanf("%d", &coluna);
+                    if(coluna <= 0 || coluna > NUMCOLUNAS)
+                    {
+                        printf("Numero de Coluna errado");
+                        goto coluna;
+                    }
+                    else
+                    {
+                        coluna--;
+                    }
+            }
+
 			int numeroCampistas = mapaLotes[linha][coluna].nCamp;
 
-                printf("DADOS DO LOTE: %d %d\n", linha, coluna);
+            if(mapaLotes[linha][coluna].nCamp == 0){
+                 printf("Lote não tem dados");
+                getch();
+                system("cls");
+                goto upa;
+            }
+
+
+            else{
+                 printf("DADOS DO LOTE: %d %d\n", linha, coluna);
                 printf("---------------------------------------|");
                 printf("|\nDias de Alojamento:           %d    |\n", mapaLotes[linha][coluna].diasAlojamento);
                 printf("|Taxa a pagar pela reserva:      %f    |\n", mapaLotes[linha][coluna].taxaPagar);
                 printf("|Numero de Campistas no lote     %d:   |\n", mapaLotes[linha][coluna].nCamp);
                 printf("---------------------------------------|");
+
 
                 for(int i=0; i<numeroCampistas; i++)
                 {
@@ -51,6 +81,9 @@ void consultarUmLote(Lote mapaLotes[][NUMCOLUNAS]){
                     printf("|CC: %d                       |\n",mapaLotes[linha][coluna].campistas[i].cc);
                     printf("------------------------------|");
                 }
+            }
+
+
 
 		getch();
 	}

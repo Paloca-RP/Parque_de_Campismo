@@ -13,6 +13,7 @@
 	    Lote mapaLotes[NUMLINHAS][NUMCOLUNAS];
 	    fflush(stdin);
 		setlocale(LC_ALL, "Portuguese");
+		system("color F1");
 	    int menu;
 	    do
 	    {
@@ -49,6 +50,15 @@
 			    	system("cls");
 			    	//consultarPorCampista();
 			    	break;
+                case 5:
+			    	system("cls");
+			    	editarLote(&mapaLotes);
+			    	break;
+			    case 6:
+			    	system("cls");
+			    	//consultarPorCampista();
+			    	break;
+
 
 		    }
 	} while (menu != 7);
