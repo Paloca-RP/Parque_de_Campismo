@@ -32,7 +32,8 @@ void consultarUmLote(Lote mapaLotes[][NUMCOLUNAS]){
 				scanf("%d", &linha);
             if(linha <= 0 || linha > NUMLINHAS)
             {
-                  printf("Numero de Linha Errado");
+
+                  printf("Numero de Linha INVALIDO");
                     goto linnhas;
             }
             else

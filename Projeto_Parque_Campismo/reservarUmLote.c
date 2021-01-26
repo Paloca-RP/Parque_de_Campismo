@@ -93,13 +93,13 @@
             {
                 fflush(stdin);
                 printf("\nINSERIR NOME COMPLETO DO CLIENTE: ");
-                gets(mapaLotes[linha][coluna].campistas[i].nome);
+                gets (mapaLotes[linha][coluna].campistas[i].nome);
                 printf("\nINSERIR IDADE DO CLIENTE: ");
-                scanf(" %d",&mapaLotes[linha][coluna].campistas[i].idade);
+                scanf("%d", &mapaLotes[linha][coluna].campistas[i].idade);
                 printf("\nINSERIR NUMERO DE IDENTIFICAÇÃO CIVIL: ");
-                scanf(" %d",&mapaLotes[linha][coluna].campistas[i].cc);
+                scanf("%d", &mapaLotes[linha][coluna].campistas[i].cc);
                 printf("\nINSERIR NIF: ");
-                scanf(" %d",&mapaLotes[linha][coluna].campistas[i].nif);
+                scanf("%d", &mapaLotes[linha][coluna].campistas[i].nif);
            }
 
 	}
