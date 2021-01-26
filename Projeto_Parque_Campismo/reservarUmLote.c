@@ -81,6 +81,7 @@
 
 		    mapaLotes[linha][coluna].diasAlojamento = diasAlojamento;
 		    mapaLotes[linha][coluna].taxaPagar= somaTaxa;
+		    mapaLotes[linha][coluna].nCamp = numeroCampistas;
 
             mapaLotes[linha][coluna].tipoAlojamento = "tx4";
 
@@ -100,4 +101,5 @@
                 printf("\nINSERIR NIF: ");
                 scanf(" %d",&mapaLotes[linha][coluna].campistas[i].nif);
            }
+
 	}

@@ -4,10 +4,8 @@
 #include <string.h>
 #include <locale.h>
 #include <ctype.h>
-
 #define NUMLINHAS 5
 #define NUMCOLUNAS 5
-
 #include "struct.h"
 	//PAGINA DO MENU CENTRAL
 	int main()
@@ -36,8 +34,8 @@
 		    switch(menu)
 		    {
 			    case 1:
-			        system("cls");
-			        mostraMapaDeLotes(&mapaLotes);
+			        //system("cls");
+			        //mostraMapaDeLotes(&mapaLotes);
 			        break;
 			    case 2:
 			        system("cls");
@@ -45,7 +43,7 @@
 			        break;
 			    case 3:
 			        system("cls");
-			       // consultarUmLote(&mapaLotes);
+			        consultarUmLote(&mapaLotes);
 			        break;
 			    case 4:
 			    	system("cls");
