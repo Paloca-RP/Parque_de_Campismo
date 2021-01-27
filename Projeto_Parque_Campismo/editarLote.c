@@ -69,12 +69,12 @@ int linha, coluna;
 
                 for(int i=0; i<numeroCampistas; i++)
                 {
-                    printf("------------------------------|\n");
-                    printf("|DADOS DO CAMPISTA %d         |\n", i+1);
+                    printf("---------DADOS GUARDADOS--- --|\n");
+                    printf("|CAMPISTA %d                  |\n", i+1);
                     printf("|NOME : %s                    |\n",mapaLotes[linha][coluna].campistas[i].nome);
-                    printf("|IDADE : %d                   |\n",mapaLotes[linha][coluna].campistas[i].idade);
-                    printf("|NIF : %d                     |\n",mapaLotes[linha][coluna].campistas[i].nif);
-                    printf("|CC: %d                       |\n",mapaLotes[linha][coluna].campistas[i].cc);
+                    printf("|IDADE : %d                   |\n", mapaLotes[linha][coluna].campistas[i].idade);
+                    printf("|NIF : %d                     |\n", mapaLotes[linha][coluna].campistas[i].nif);
+                    printf("|CC: %d                       |\n",  mapaLotes[linha][coluna].campistas[i].cc);
                     printf("------------------------------|\n");
                 }
             }
@@ -97,19 +97,26 @@ int linha, coluna;
                 printf("OLA");
                 break;
                 case 2:
-                    fflush(stdin);
                         printf("Qual O numero Do campista que quer alterar?");
                         scanf(" %d", &numeroCampista);
-                        //numeroCampista--;
+                        numeroCampista--;
+                        fflush(stdin);
                         printf("NOME: ");
-                        scanf(" %c", mapaLotes[linha][coluna].campistas[numeroCampista-1].nome);
+                        gets(mapaLotes[linha][coluna].campistas[numeroCampista].nome);
+                        printf("IDADE");
+                        scanf(" %d", &mapaLotes[linha][coluna].campistas[numeroCampista].idade);
+                        printf("NIF");
+                        scanf("%d", &mapaLotes[linha][coluna].campistas[numeroCampista].nif);
+                        printf("CC");
+                        scanf(" %d", &mapaLotes[linha][coluna].campistas[numeroCampista].cc);
+
                     break;
                 case 3: printf("TESTE");break;
                 case 4: getch();break;
                 default: getch();
             }
             fflush(stdin);
-            printf("Alteracoes Salvas Com Sucesso: ");
+            printf("Alteracoes Salvas Com Sucesso!!");
             system("pause");
             getch();
 }

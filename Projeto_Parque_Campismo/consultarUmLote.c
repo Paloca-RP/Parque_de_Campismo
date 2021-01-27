@@ -20,7 +20,8 @@
 #define ELETRICIDADE 3
 #define CAMPISTAS 3.50
 
-//ESTA FUNÇÃO VAI BUSCAR OS DADOS ATUAIS DO LOTE (TODOS OS DADOS RELATIVOS A RESERVA ATUAL)
+//ESTA FUNÇÃO VAI BUSCAR OS DADOS ATUAIS DO LOTE SELECIONADO PELO UTILIZADOR
+// (TODOS OS DADOS RELATIVOS A RESERVA ATUAL)
 void consultarUmLote(Lote mapaLotes[][NUMCOLUNAS]){
 
 		int linha, coluna;
@@ -32,7 +33,6 @@ void consultarUmLote(Lote mapaLotes[][NUMCOLUNAS]){
 				scanf("%d", &linha);
             if(linha <= 0 || linha > NUMLINHAS)
             {
-
                   printf("Numero de Linha INVALIDO");
                     goto linnhas;
             }
@@ -86,5 +86,5 @@ void consultarUmLote(Lote mapaLotes[][NUMCOLUNAS]){
 
 
 
-		getch();
+		//getch();
 	}
