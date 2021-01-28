@@ -7,6 +7,7 @@
 #define NUMLINHAS 5
 #define NUMCOLUNAS 5
 #include "struct.h"
+
 	//PAGINA DO MENU CENTRAL
 	int main()
 	{
@@ -63,7 +64,7 @@
 			    	break;
 			    case 6:
 			    	system("cls");
-			    	deletar(&mapaLotes);
+			    	libertarLote(&mapaLotes);
 			    	break;
 
 

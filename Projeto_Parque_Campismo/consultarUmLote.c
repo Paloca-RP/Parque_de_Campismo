@@ -62,7 +62,6 @@ void consultarUmLote(Lote mapaLotes[][NUMCOLUNAS]){
                 goto upa;
             }
 
-
             else{
                 printf("DADOS DO LOTE: %d %d\n", linha, coluna);
                 printf("---------------------------------------\n");
@@ -70,7 +69,6 @@ void consultarUmLote(Lote mapaLotes[][NUMCOLUNAS]){
                 printf("|Taxa a pagar pela reserva:   %.2f \n", mapaLotes[linha][coluna].taxaPagar);
                 printf("|Numero de Campistas no lote: %d \n", mapaLotes[linha][coluna].nCamp);
                 printf("---------------------------------------\n");
-
 
                 for(int i=0; i<numeroCampistas; i++)
                 {
@@ -83,8 +81,5 @@ void consultarUmLote(Lote mapaLotes[][NUMCOLUNAS]){
                     printf("|-----------------------");
                 }
             }
-
-
-
 		getch();
 	}

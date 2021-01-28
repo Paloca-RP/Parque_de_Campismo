@@ -61,20 +61,3 @@
 	  printf("Pressione uma tecla para voltar ao menu");
 	  getch();
 }
-
-
-
-void deletar( Lote mapaLotes[][NUMCOLUNAS]){
-    int linha, coluna;
-
-        mostraMapaDeLotes(&mapaLotes);
-    printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
-	    scanf("%d", &linha);scanf("%d", &coluna);
-        linha--;
-        coluna--;
-        mapaLotes[linha][coluna].nCamp = 0;
-        printf("Lote está livre");
-
-}
-
-void removerCampista()

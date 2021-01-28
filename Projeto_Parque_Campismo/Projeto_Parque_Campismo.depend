@@ -6,7 +6,7 @@
 	<string.h>
 	<locale.h>
 
-1611774559 source:c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\main.c
+1611859039 source:c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\main.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -23,7 +23,7 @@
 	<locale.h>
 	<ctype.h>
 
-1611773102 source:c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\consultarumlote.c
+1611858597 source:c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\consultarumlote.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -32,7 +32,7 @@
 	<ctype.h>
 	"struct.h"
 
-1611652997 source:c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\mostramapalotes.c
+1611858530 source:c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\mostramapalotes.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -50,7 +50,7 @@
 	<ctype.h>
 	"struct.h"
 
-1611698550 c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\struct.h
+1611859032 c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\struct.h
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -134,6 +134,17 @@
 	"struct.h"
 
 1611853310 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\lote.c
+	<conio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+	<ctype.h>
+	"struct.h"
+
+1611858664 source:c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\campista.c
+
+1611858945 c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\campista.h
+	<stdio.h>
 	<conio.h>
 	<stdlib.h>
 	<string.h>
