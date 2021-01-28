@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -318,3 +318,4 @@ void consultarUmLote(Lote mapaLotes[][NUMCOLUNAS]){
            }
 
 	}
+*/
