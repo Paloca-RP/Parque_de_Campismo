@@ -1,8 +1,8 @@
-->fazer for que percorrrer array da  structs para inserir num ficheiro no final do programa
+-> fazer "for" que percorre o array da  struct para inserir num ficheiro no final do programa
 
--> Inserir, Editar, Remover cenas das structs;
+->  Remover cenas das structs;
 
-->matriz esta a fazer coluna/kinha (matrix[y][x]);
+-> mapa lotes bugado nao sei o que fazer da vida (ass.Paloca)
 
 
 
