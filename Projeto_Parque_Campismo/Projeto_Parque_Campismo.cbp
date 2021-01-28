@@ -40,6 +40,9 @@
 		<Unit filename="editarLote.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="lote.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

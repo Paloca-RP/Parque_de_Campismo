@@ -1,10 +1,11 @@
 #include<stdio.h>
 #include<conio.h>
+
 int main (void )
 {
   int matriz[5][5]={0},i, j;
  
- matriz[0][0] = 'x';
+  matriz[0][0] = 'x';
  
  
  

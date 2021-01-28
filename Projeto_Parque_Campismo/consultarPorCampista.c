@@ -5,6 +5,7 @@
 #include <string.h>
 #include <locale.h>
 #include <ctype.h>
+#include "struct.h"
 
 //CONSTANTES
 #define NUMLINHAS 5
