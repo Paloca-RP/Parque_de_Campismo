@@ -217,7 +217,7 @@
             getch();
 }
 
-void libertarLote( Lote mapaLotes[][NUMCOLUNAS],int linha,int coluna){
+void libertarLote( Lote mapaLotes[][NUMCOLUNAS]){
         mostraMapaDeLotes(&mapaLotes);
         printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
 	    scanf("%d", &linha);scanf("%d", &coluna);
