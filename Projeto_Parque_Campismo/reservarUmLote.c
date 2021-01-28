@@ -32,7 +32,7 @@
 	     do{
 		    printf("\nINSIRA O NUMERO DE CAMPISTAS: ");
 		    scanf(" %d", &numeroCampistas);
-	    }while(numeroCampistas <=0);
+	    }while(numeroCampistas <=0 || numeroCampistas > 6);
 
 	    printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
 	    scanf("%d", &linha);scanf("%d", &coluna);

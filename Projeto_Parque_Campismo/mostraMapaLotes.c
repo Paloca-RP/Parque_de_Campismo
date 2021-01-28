@@ -30,6 +30,7 @@ void mostraMapaDeLotes(Lote mapaLotes[][NUMCOLUNAS]){
        {
             for ( j=0; j<5; j++ )
             {
+           //     strcpy(" ... ",matriz[ i ][ j ]);
                 mapaLotes[i][j].tipoAlojamento;
             }
         }

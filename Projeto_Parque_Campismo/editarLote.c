@@ -123,7 +123,7 @@ int linha, coluna;
                         for (int i = pos; i <  mapaLotes[linha][coluna].nCamp - 1; ++i){
                             p[i] = p[i + 1];
                         }
-                        p = realloc(p, --mapaLotes[linha][coluna].nCamp * sizeof(Lote.campistas[pos])); //reduzir o tamanho do array em 1 unidade
+                        p = realloc(p, --mapaLotes[linha][coluna].nCamp * sizeof(Campista)); //reduzir o tamanho do array em 1 unidade
                     }*/
                 break;
                 case 4: getch();break;

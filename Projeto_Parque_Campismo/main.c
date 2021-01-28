@@ -36,7 +36,7 @@
 		    {
 			    case 1:
 			        system("cls");
-			        mostraMapaDeLotes(&mapaLotes);
+			        //mostraMapaDeLotes(&mapaLotes);
 			        break;
 			    case 2:
 			        system("cls");

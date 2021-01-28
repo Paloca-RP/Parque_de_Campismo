@@ -64,27 +64,27 @@ void consultarUmLote(Lote mapaLotes[][NUMCOLUNAS]){
 
 
             else{
-                 printf("DADOS DO LOTE: %d %d\n", linha, coluna);
-                printf("---------------------------------------|");
-                printf("|\nDias de Alojamento:           %d    |\n", mapaLotes[linha][coluna].diasAlojamento);
-                printf("|Taxa a pagar pela reserva:      %f    |\n", mapaLotes[linha][coluna].taxaPagar);
-                printf("|Numero de Campistas no lote     %d:   |\n", mapaLotes[linha][coluna].nCamp);
-                printf("---------------------------------------|");
+                printf("DADOS DO LOTE: %d %d\n", linha, coluna);
+                printf("---------------------------------------\n");
+                printf("|Dias de Alojamento:          %d  \n", mapaLotes[linha][coluna].diasAlojamento);
+                printf("|Taxa a pagar pela reserva:   %.2f \n", mapaLotes[linha][coluna].taxaPagar);
+                printf("|Numero de Campistas no lote: %d \n", mapaLotes[linha][coluna].nCamp);
+                printf("---------------------------------------\n");
 
 
                 for(int i=0; i<numeroCampistas; i++)
                 {
                     printf("------------------------------|");
-                    printf("|DADOS DO CAMPISTA %d         |\n", i+1);
-                    printf("|NOME : %s                    |\n",mapaLotes[linha][coluna].campistas[i].nome);
-                    printf("|IDADE : %d                   |\n",mapaLotes[linha][coluna].campistas[i].idade);
-                    printf("|NIF : %d                     |\n",mapaLotes[linha][coluna].campistas[i].nif);
-                    printf("|CC: %d                       |\n",mapaLotes[linha][coluna].campistas[i].cc);
-                    printf("------------------------------|");
+                    printf("\n|DADOS DO CAMPISTA %d\n", i+1);
+                    printf("|NOME :  %s\n",mapaLotes[linha][coluna].campistas[i].nome);
+                    printf("|IDADE : %d\n",mapaLotes[linha][coluna].campistas[i].idade);
+                    printf("|NIF :   %d\n",mapaLotes[linha][coluna].campistas[i].nif);
+                    printf("|CC:     %d \n",mapaLotes[linha][coluna].campistas[i].cc);
+                    printf("|-----------------------");
                 }
             }
 
 
 
-		//getch();
+		getch();
 	}
