@@ -155,7 +155,7 @@ int linha, coluna;
                             p[i] = p[i + 1];
                         }
                         p = realloc(p, --mapaLotes[linha][coluna].nCamp * sizeof(Campista)); //reduzir o tamanho do array em 1 unidade
-                    }*/
+                    }
                 break;
                 case 4: getch();break;
                 default: getch();

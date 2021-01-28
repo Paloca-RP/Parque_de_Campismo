@@ -112,8 +112,8 @@ int linha, coluna;
 
                     break;
                 case 3:
-                    ////////////STOR CHAMA CASE 3 ANDA CA crl//////////////////////////
-                   /* printf("Qual a posição a excluir?");
+                    //////////////////////////////////////
+                    printf("Qual a posição a excluir?");
                     int pos, *p;
                     scanf("%d", &pos);
                     pos-- ; //para ajustar aos indices que começam em 0
@@ -124,7 +124,7 @@ int linha, coluna;
                             p[i] = p[i + 1];
                         }
                         p = realloc(p, --mapaLotes[linha][coluna].nCamp * sizeof(Campista)); //reduzir o tamanho do array em 1 unidade
-                    }*/
+                    }
                 break;
                 case 4: getch();break;
                 default: getch();

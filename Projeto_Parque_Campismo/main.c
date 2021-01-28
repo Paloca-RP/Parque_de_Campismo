@@ -10,10 +10,17 @@
 	//PAGINA DO MENU CENTRAL
 	int main()
 	{
+
         Lote mapaLotes[NUMLINHAS][NUMCOLUNAS];
+        for (int i=0; i<5; i++ )//verificação
+	   {
+		    for (int j=0; j<5; j++ )
+		    {
+		        mapaLotes[i][j].nCamp = 0;
+		    }
+	   }
 	    fflush(stdin);
 		setlocale(LC_ALL, "Portuguese");
-		system("color F1");
 	    int menu;
 	    do
 	    {
@@ -56,7 +63,7 @@
 			    	break;
 			    case 6:
 			    	system("cls");
-			    	//consultarPorCampista();
+			    	deletar(&mapaLotes);
 			    	break;
 
 

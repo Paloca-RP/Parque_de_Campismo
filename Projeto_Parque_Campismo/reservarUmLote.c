@@ -29,6 +29,8 @@
 	    float somaTaxa=0;
 	    char tarifaUsada, tarifaUsada2;
 
+	    Lote lote;
+
 	     do{
 		    printf("\nINSIRA O NUMERO DE CAMPISTAS: ");
 		    scanf(" %d", &numeroCampistas);
@@ -55,7 +57,11 @@
 	    if (tarifaUsada2 == 's' || tarifaUsada2 == 'S')
 	    {
 	        somaTaxa += ELETRICIDADE;
+	        lote.energy = 'e';
 	    }
+        else{
+            lote.energy = 'x';
+        }
 
         do{
 		    printf("\nINSIRA O TIPO DE ALOJAMENTO: [T]ENDA , [C]ARAVANA OU [A]UTOCARAVANA\n ");
@@ -65,41 +71,45 @@
 	    if (tarifaUsada == 'T' || tarifaUsada == 't')
 	    {
 	        somaTaxa += TENDA;
+	        lote.tipoAlojamento = 'T';
 	    }
 	    else if (tarifaUsada == 'C' || tarifaUsada =='c')
 	    {
 	        somaTaxa+= CARAVANA;
+	        lote.tipoAlojamento = 'C';
 	    }
 	    else if (tarifaUsada == 'A' || tarifaUsada == 'a')
 	    {
 	        somaTaxa += AUTOCARAVANA;
+	        lote.tipoAlojamento = 'A';
 	    }
 
             //FORMULA PARA CALCULO DA TAXA A PAGAR
 		    somaTaxa = somaTaxa*diasAlojamento+(numeroCampistas*CAMPISTAS);
 
 
-		    mapaLotes[linha][coluna].diasAlojamento = diasAlojamento;
-		    mapaLotes[linha][coluna].taxaPagar= somaTaxa;
-		    mapaLotes[linha][coluna].nCamp = numeroCampistas;
+		    lote.diasAlojamento = diasAlojamento;
+		    lote.taxaPagar= somaTaxa;
+		    lote.nCamp = numeroCampistas;
 
-            mapaLotes[linha][coluna].tipoAlojamento = "tx4";
-
-
-
-			printf("O TOTAL A PAGAR DA RESERVA É DE %.2f EUROS", somaTaxa);
+            printf("O TOTAL A PAGAR DA RESERVA É DE %.2f EUROS", somaTaxa);
 
             for(int i=0; i<numeroCampistas;i++)
             {
+                Campista campista;
+
                 fflush(stdin);
                 printf("\nINSERIR NOME COMPLETO DO CLIENTE: ");
-                gets (mapaLotes[linha][coluna].campistas[i].nome);
+                gets (campista.nome);
                 printf("\nINSERIR IDADE DO CLIENTE: ");
-                scanf("%d", &mapaLotes[linha][coluna].campistas[i].idade);
+                scanf("%d", &campista.idade);
                 printf("\nINSERIR NUMERO DE IDENTIFICAÇÃO CIVIL: ");
-                scanf("%d", &mapaLotes[linha][coluna].campistas[i].cc);
+                scanf("%d", &campista.cc);
                 printf("\nINSERIR NIF: ");
-                scanf("%d", &mapaLotes[linha][coluna].campistas[i].nif);
+                scanf("%d", &campista.nif);
+                lote.campistas[i] = campista;
            }
+
+            mapaLotes[linha][coluna] = lote;
 
 	}

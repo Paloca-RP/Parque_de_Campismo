@@ -60,13 +60,14 @@
 
 1611652133 source:c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\struct.c
 
-1611344830 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\consultarporcampista.c
+1611832781 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\consultarporcampista.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
 	<string.h>
 	<locale.h>
 	<ctype.h>
+	"struct.h"
 
 1611826238 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\consultarumlote.c
 	<stdio.h>
@@ -77,7 +78,7 @@
 	<ctype.h>
 	"struct.h"
 
-1611776643 c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\struct.h
+1611855066 c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\struct.h
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -85,15 +86,16 @@
 	<locale.h>
 	<ctype.h>
 
-1611828507 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\mostramapalotes.c
+1611855770 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\mostramapalotes.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
 	<string.h>
 	<locale.h>
 	<ctype.h>
+	"struct.h"
 
-1611824505 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\reservarumlote.c
+1611854670 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\reservarumlote.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -104,7 +106,7 @@
 
 1611658912 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\struct.c
 
-1611826837 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\main.c
+1611855651 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\main.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -113,7 +115,7 @@
 	<ctype.h>
 	"struct.h"
 
-1611825723 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\editarlote.c
+1611855647 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\editarlote.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -124,6 +126,14 @@
 
 1611774756 source:c:\users\user\documents\github\parque_de_campismo\projeto_parque_campismo\editarlote.c
 	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+	<ctype.h>
+	"struct.h"
+
+1611853310 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\lote.c
 	<conio.h>
 	<stdlib.h>
 	<string.h>

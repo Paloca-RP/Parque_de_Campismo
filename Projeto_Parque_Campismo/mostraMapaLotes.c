@@ -4,6 +4,7 @@
 #include <string.h>
 #include <locale.h>
 #include <ctype.h>
+#include "struct.h"
 //CONSTANTES
 #define NUMLINHAS 5
 #define NUMCOLUNAS 5
@@ -20,16 +21,23 @@
 #define CAMPISTAS 3.50
 ////////////////////////////////////
 
-	void mostraMapaDeLotes(char mapaLotes[NUMLINHAS][NUMCOLUNAS]){
+	void mostraMapaDeLotes(Lote mapaLotes[][NUMCOLUNAS]){
 
 	    printf("\nMAPA DE LOTES\n");
 		int i,j;
+
+
 
 	   for ( i=0; i<5; i++ )
 	   {
 		    for ( j=0; j<5; j++ )
 		    {
-		    	strcpy(mapaLotes[i][j], "...");
+		    	if(mapaLotes[i][j].nCamp == 0 )
+                {
+                    printf("...\n");
+                }
+		    	else
+                    printf("%c%c%d \n", mapaLotes[i][j].tipoAlojamento,mapaLotes[i][j].energy, mapaLotes[i][j].nCamp);
 		    }
 		}
 
@@ -42,10 +50,29 @@
 	    printf("%d -",i+1);
 		    for ( j=0; j < NUMLINHAS; j++ )
 		    {
-		      printf ("| %s ",mapaLotes[ i ][ j ]);
+		        if(mapaLotes[i][j].nCamp == 0 )
+                {
+                    printf("...");
+                }
+		      printf ("|%c%c%d \n",mapaLotes[i][j].tipoAlojamento,mapaLotes[i][j].energy, mapaLotes[i][j].nCamp);
 		    }
 		    printf("\n");
 	  }
 	  printf("Pressione uma tecla para voltar ao menu");
 	  getch();
+}
+
+
+
+void deletar( Lote mapaLotes[][NUMCOLUNAS]){
+    int linha, coluna;
+
+        mostraMapaDeLotes(&mapaLotes);
+    printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
+	    scanf("%d", &linha);scanf("%d", &coluna);
+        linha--;
+        coluna--;
+        mapaLotes[linha][coluna].nCamp = 0;
+        printf("Lote está livre");
+
 }

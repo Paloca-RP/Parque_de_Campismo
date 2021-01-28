@@ -32,6 +32,7 @@ typedef struct{
     char tipoAlojamento;
     int nCamp;
     int diasAlojamento;
+    char energy;
     float taxaPagar;
     Campista campistas[6];
 }Lote;
