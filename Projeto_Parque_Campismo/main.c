@@ -10,7 +10,7 @@
 	//PAGINA DO MENU CENTRAL
 	int main()
 	{
-	    Lote mapaLotes[NUMLINHAS][NUMCOLUNAS];
+        Lote mapaLotes[NUMLINHAS][NUMCOLUNAS];
 	    fflush(stdin);
 		setlocale(LC_ALL, "Portuguese");
 		system("color F1");

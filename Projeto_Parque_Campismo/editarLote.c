@@ -61,33 +61,33 @@ int linha, coluna;
             }
             else{
                  printf("DADOS DO LOTE: %d %d\n", linha, coluna);
-                printf("---------------------------------------|\n");
-                printf("|\nDias de Alojamento:           %d    |\n", mapaLotes[linha][coluna].diasAlojamento);
-                printf("|Taxa a pagar pela reserva:      %f    |\n", mapaLotes[linha][coluna].taxaPagar);
-                printf("|Numero de Campistas no lote     %d:   |\n", mapaLotes[linha][coluna].nCamp);
-                printf("---------------------------------------|\n");
+                printf("\7\t------------------------------------\n");
+                printf("\tDias de Alojamento:           %d    \n", mapaLotes[linha][coluna].diasAlojamento);
+                printf("\tTaxa a pagar pela reserva:    %.2f    \n", mapaLotes[linha][coluna].taxaPagar);
+                printf("\tNumero de Campistas no lote:  %d   \n", mapaLotes[linha][coluna].nCamp);
+                printf("\t--------------------------------------\n");
 
                 for(int i=0; i<numeroCampistas; i++)
                 {
-                    printf("---------DADOS GUARDADOS--- --|\n");
-                    printf("|CAMPISTA %d                  |\n", i+1);
-                    printf("|NOME : %s                    |\n",mapaLotes[linha][coluna].campistas[i].nome);
-                    printf("|IDADE : %d                   |\n", mapaLotes[linha][coluna].campistas[i].idade);
-                    printf("|NIF : %d                     |\n", mapaLotes[linha][coluna].campistas[i].nif);
-                    printf("|CC: %d                       |\n",  mapaLotes[linha][coluna].campistas[i].cc);
-                    printf("------------------------------|\n");
+                    printf("\t---DADOS GUARDADOS---\n");
+                    printf("\t  CAMPISTA: %d \n", i+1);
+                    printf("\t  NOME :    %s \n",mapaLotes[linha][coluna].campistas[i].nome);
+                    printf("\t  IDADE :   %d \n", mapaLotes[linha][coluna].campistas[i].idade);
+                    printf("\t  NIF :     %d \n", mapaLotes[linha][coluna].campistas[i].nif);
+                    printf("\t  CC :      %d \n",  mapaLotes[linha][coluna].campistas[i].cc);
+                    printf("\t---------------------\n");
                 }
             }
             int op;
-            printf("\n-------EDIÇÃO DO LOTE---|\n");
-            printf("|O QUE QUER ALTERAR?      |\n");
-            printf("|1-DADOS DO LOTE          |\n");
-            printf("|2-DADOS DOS CAMPISTAS    |\n");
-            printf("|3-ADICIONAR NOVO CAMPISTA|\n");
-            printf("|3-REMOVER CAMPISTA       |\n");
-            printf("|4-SAIR                   |\n");
-            printf("|-------------------------|\n");
-            printf("INSIRA UMA OPCAO:");
+            printf("\t|------EDIÇÃO DO LOTE-----|\n");
+            printf("\t|O QUE QUER ALTERAR?      |\n");
+            printf("\t|1-DADOS DO LOTE          |\n");
+            printf("\t|2-DADOS DOS CAMPISTAS    |\n");
+            printf("\t|3-ADICIONAR NOVO CAMPISTA|\n");
+            printf("\t|3-REMOVER CAMPISTA       |\n");
+            printf("\t|4-SAIR                   |\n");
+            printf("\t|-------------------------|\n");
+            printf("\tINSIRA UMA OPCAO:");
             scanf("%d", &op);
 
             int numeroCampista;
@@ -111,7 +111,21 @@ int linha, coluna;
                         scanf(" %d", &mapaLotes[linha][coluna].campistas[numeroCampista].cc);
 
                     break;
-                case 3: printf("TESTE");break;
+                case 3:
+                    ////////////STOR CHAMA CASE 3 ANDA CA crl//////////////////////////
+                   /* printf("Qual a posição a excluir?");
+                    int pos, *p;
+                    scanf("%d", &pos);
+                    pos-- ; //para ajustar aos indices que começam em 0
+
+                    if (pos >= 0 && pos < mapaLotes[linha][coluna].nCamp){ //se a posição é valida
+                     //andar todos um para trás a partir da posição a remover
+                        for (int i = pos; i <  mapaLotes[linha][coluna].nCamp - 1; ++i){
+                            p[i] = p[i + 1];
+                        }
+                        p = realloc(p, --mapaLotes[linha][coluna].nCamp * sizeof(Lote.campistas[pos])); //reduzir o tamanho do array em 1 unidade
+                    }*/
+                break;
                 case 4: getch();break;
                 default: getch();
             }
