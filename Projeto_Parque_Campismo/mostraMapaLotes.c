@@ -76,3 +76,5 @@ void deletar( Lote mapaLotes[][NUMCOLUNAS]){
         printf("Lote está livre");
 
 }
+
+void removerCampista()
