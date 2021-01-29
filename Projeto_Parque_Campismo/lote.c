@@ -153,57 +153,96 @@
                 goto upa;
             }
             else{
-                 printf("DADOS DO LOTE: %d %d\n", linha, coluna);
-                printf("\7\t------------------------------------\n");
-                printf("\tDias de Alojamento:           %d    \n", mapaLotes[linha][coluna].diasAlojamento);
-                printf("\tTaxa a pagar pela reserva:    %.2f    \n", mapaLotes[linha][coluna].taxaPagar);
-                printf("\tNumero de Campistas no lote:  %d   \n", mapaLotes[linha][coluna].nCamp);
-                printf("\t--------------------------------------\n");
+                system("cls");
+                //mostraMapaDeLotes(&mapaLotes);
+                printf("--------------------------------------------------------------------------------------\n");
+                printf("LEGENDA: T-TENDA, A-AUTOCARAVANA, C-CARAVANA, X-SEM ELETRICIDADE, E- COM ELETRICIDADE\n");
+                printf("--------------------------------------------------------------------------------------\n");
+                printf("DADOS DO LOTE: %d %d\n", linha, coluna);
+                printf("--------------------------------------------------------------------------------------\n");
+                printf("Dias de Alojamento:          %d    \n", mapaLotes[linha][coluna].diasAlojamento);
+                printf("tTaxa a pagar pela reserva:  %.2f  \n", mapaLotes[linha][coluna].taxaPagar);
+                printf("Numero de Campistas no lote: %d    \n", mapaLotes[linha][coluna].nCamp);
+                printf("Tipo de Alojamento:          %c    \n", mapaLotes[linha][coluna].tipoAlojamento);
+                printf("Ligado a rede Elétrica?:     %c    \n", mapaLotes[linha][coluna].energy);
+                printf("----------------------------------------------------------------------------------------\n");
 
+                    printf("---DADOS-GUARDADOS-DOS-CAMPISTAS-----------\n");
                 for(int i=0; i<numeroCampistas; i++)
                 {
-                    printf("\t---DADOS GUARDADOS---\n");
-                    printf("\t  CAMPISTA: %d \n", i+1);
-                    printf("\t  NOME :    %s \n",mapaLotes[linha][coluna].campistas[i].nome);
-                    printf("\t  IDADE :   %d \n", mapaLotes[linha][coluna].campistas[i].idade);
-                    printf("\t  NIF :     %d \n", mapaLotes[linha][coluna].campistas[i].nif);
-                    printf("\t  CC :      %d \n",  mapaLotes[linha][coluna].campistas[i].cc);
-                    printf("\t---------------------\n");
+                    printf("CAMPISTA: %d \n", i+1);
+                    printf("NOME :    %s \n",mapaLotes[linha][coluna].campistas[i].nome);
+                    printf("IDADE :   %d \n", mapaLotes[linha][coluna].campistas[i].idade);
+                    printf("NIF :     %d \n", mapaLotes[linha][coluna].campistas[i].nif);
+                    printf("CC :      %d \n",  mapaLotes[linha][coluna].campistas[i].cc);
+                    printf("----------------------------------------\n");
                 }
             }
 
             int op;
-            printf("\t|------EDIÇÃO DO LOTE-----|\n");
-            printf("\t|O QUE QUER ALTERAR?      |\n");
-            printf("\t|1-DADOS DO LOTE          |\n");
-            printf("\t|2-DADOS DOS CAMPISTAS    |\n");
-            printf("\t|3-ADICIONAR NOVO CAMPISTA|\n");
-            printf("\t|3-REMOVER CAMPISTA       |\n");
-            printf("\t|4-SAIR                   |\n");
-            printf("\t|-------------------------|\n");
-            printf("\tINSIRA UMA OPCAO:");
+            printf("|------EDIÇÃO DO LOTE-----|\n");
+            printf("|O QUE QUER ALTERAR?      |\n");
+            printf("|1-DADOS DO LOTE          |\n");
+            printf("|2-DADOS DOS CAMPISTAS    |\n");
+            printf("|3-ADICIONAR NOVO CAMPISTA|\n");
+            printf("|3-REMOVER CAMPISTA       |\n");
+            printf("|4-SAIR                   |\n");
+            printf("|-------------------------|\n");
+            printf("INSIRA UMA OPCAO:");
             scanf("%d", &op);
 
             int numeroCampista;
+            char temEletricidade, tipoAlojamento;
             switch(op)
             {
                 case 1:
-                printf("OLA");
+                     do{
+                        printf("\nTEM ELETRICIDADE?: [S]IM OU [N]AO");
+                        scanf(" %c", &temEletricidade);
+                    }while(temEletricidade != 's' && temEletricidade !='S' && temEletricidade != 'N' && temEletricidade !='n' );
+
+                        if (temEletricidade == 's' || temEletricidade== 'S')
+                        {
+                            mapaLotes[linha][coluna].energy = 'e';
+                        }
+                        else
+                        {
+                            mapaLotes[linha][coluna].energy = 'x';
+                        }
+
+                        do{
+                            printf("\nINSIRA O TIPO DE ALOJAMENTO: [T]ENDA , [C]ARAVANA OU [A]UTOCARAVANA\n ");
+                            scanf(" %c", &tipoAlojamento);
+                        }while(tipoAlojamento != 'T' && tipoAlojamento != 'C' && tipoAlojamento != 'A' && tipoAlojamento != 't' && tipoAlojamento != 'c' && tipoAlojamento != 'a');
+
+                        if (tipoAlojamento == 'T' || tipoAlojamento == 't')
+                        {
+                            mapaLotes[linha][coluna].tipoAlojamento = 'T';
+                        }
+                        else if (tipoAlojamento == 'C' || tipoAlojamento =='c')
+                        {
+                            mapaLotes[linha][coluna].tipoAlojamento = 'C';
+                        }
+                        else if (tipoAlojamento == 'A' || tipoAlojamento == 'a')
+                        {
+                            mapaLotes[linha][coluna].tipoAlojamento = 'A';
+                        }
+                        printf("ALETRAÇOES SALVAS COM SUCESSO!!");
                 break;
                 case 2:
-                            printf("Qual O numero Do campista que quer alterar?");
-                            scanf(" %d", &numeroCampista);
-                            numeroCampista--;
-                            fflush(stdin);
-                            printf("NOME: ");
-                            gets(mapaLotes[linha][coluna].campistas[numeroCampista].nome);
-                            printf("IDADE");
-                            scanf(" %d", &mapaLotes[linha][coluna].campistas[numeroCampista].idade);
-                            printf("NIF");
-                            scanf("%d", &mapaLotes[linha][coluna].campistas[numeroCampista].nif);
-                            printf("CC");
-                            scanf(" %d", &mapaLotes[linha][coluna].campistas[numeroCampista].cc);
-                            printf("Alteracoes Salvas Com Sucesso!!");
+                        printf("Qual O numero Do campista que quer alterar?");
+                        scanf(" %d", &numeroCampista);
+                        numeroCampista--;
+                        printf("NOME: ");
+                        gets(mapaLotes[linha][coluna].campistas[numeroCampista].nome);
+                        printf("IDADE");
+                        scanf(" %d", &mapaLotes[linha][coluna].campistas[numeroCampista].idade);
+                        printf("NIF");
+                        scanf("%d", &mapaLotes[linha][coluna].campistas[numeroCampista].nif);
+                        printf("CC");
+                        scanf(" %d", &mapaLotes[linha][coluna].campistas[numeroCampista].cc);
+                        printf("Alteracoes Salvas Com Sucesso!!");
+
                     break;
                 case 3:
 
@@ -217,7 +256,9 @@
             getch();
 }
 
-void libertarLote( Lote mapaLotes[][NUMCOLUNAS],int linha,int coluna){
+
+//ESTA FUNÇAO É RESPONSAVEL POR LIBERTAR O LOTE- VAI RECEBER A POSICAO
+void libertarLote(Lote mapaLotes[][NUMCOLUNAS], int linha, int coluna){
         mostraMapaDeLotes(&mapaLotes);
         printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
 	    scanf("%d", &linha);scanf("%d", &coluna);
@@ -225,6 +266,5 @@ void libertarLote( Lote mapaLotes[][NUMCOLUNAS],int linha,int coluna){
         coluna--;
         mapaLotes[linha][coluna].nCamp = 0;
         printf("Lote está livre");
-
 }
 
