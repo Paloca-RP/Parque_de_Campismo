@@ -27,7 +27,7 @@
 		int i,j;
 
 
-
+/*
 	   for ( i=0; i<5; i++ )
 	   {
 		    for ( j=0; j<5; j++ )
@@ -39,7 +39,7 @@
 		    	else
                     printf("%c%c%d \n", mapaLotes[i][j].tipoAlojamento,mapaLotes[i][j].energy, mapaLotes[i][j].nCamp);
 		    }
-		}
+		}*/
 
 		//############################################
 	  printf("************* Lotes ************* \n\n");
