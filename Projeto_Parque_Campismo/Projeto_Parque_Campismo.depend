@@ -133,7 +133,8 @@
 	<ctype.h>
 	"struct.h"
 
-1611853310 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\lote.c
+1611879806 source:c:\users\ricar\documents\github\parque_de_campismo\projeto_parque_campismo\lote.c
+	<stdio.h>
 	<conio.h>
 	<stdlib.h>
 	<string.h>

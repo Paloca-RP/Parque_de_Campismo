@@ -20,44 +20,29 @@
 #define ELETRICIDADE 3
 #define CAMPISTAS 3.50
 ////////////////////////////////////
+ void mostraMapaDeLotes(Lote mapaLotes[][NUMCOLUNAS]){
 
-	void mostraMapaDeLotes(Lote mapaLotes[][NUMCOLUNAS]){
+        printf("\nMAPA DE LOTES\n");
+        int i,j;
 
-	    printf("\nMAPA DE LOTES\n");
-		int i,j;
+        //############################################
+      printf("\t\t\t************* Lotes ************* \n\n");
+      printf("\t 1\t|\t 2\t|\t 3\t|\t 4\t|\t 5\t|\n");
 
-
-/*
-	   for ( i=0; i<5; i++ )
-	   {
-		    for ( j=0; j<5; j++ )
-		    {
-		    	if(mapaLotes[i][j].nCamp == 0 )
+      for ( i=0; i<NUMLINHAS; i++)
+      {
+        printf("%d -",i+1);
+            for ( j=0; j < NUMLINHAS; j++ )
+            {
+                if(mapaLotes[i][j].nCamp == 0 )
                 {
-                    printf("...\n");
+                    printf("\t...\t|");
                 }
-		    	else
-                    printf("%c%c%d \n", mapaLotes[i][j].tipoAlojamento,mapaLotes[i][j].energy, mapaLotes[i][j].nCamp);
-		    }
-		}*/
-
-		//############################################
-	  printf("************* Lotes ************* \n\n");
-	  printf("   |  1  |  2  |  3  |  4  |  5  \n");
-
-	  for ( i=0; i<NUMLINHAS; i++)
-	  {
-	    printf("%d -",i+1);
-		    for ( j=0; j < NUMLINHAS; j++ )
-		    {
-		        if(mapaLotes[i][j].nCamp == 0 )
-                {
-                    printf("...");
-                }
-		      printf ("|%c%c%d \n",mapaLotes[i][j].tipoAlojamento,mapaLotes[i][j].energy, mapaLotes[i][j].nCamp);
-		    }
-		    printf("\n");
-	  }
-	  printf("Pressione uma tecla para voltar ao menu");
-	  getch();
+                else
+                    printf ("\t%c%c%d\t|",mapaLotes[i][j].tipoAlojamento,mapaLotes[i][j].energy, mapaLotes[i][j].nCamp);
+            }
+            printf("\n");
+      }
+      printf("Pressione uma tecla para voltar ao menu");
+      getch();
 }
