@@ -5,7 +5,6 @@
 #include <locale.h>
 #include <ctype.h>
 
-
 //CONSTANTES
 #define NUMLINHAS 5
 #define NUMCOLUNAS 5

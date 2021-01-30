@@ -20,6 +20,10 @@
 #define ELETRICIDADE 3
 #define CAMPISTAS 3.50
 ////////////////////////////////////
+//FUNCAO RESPONSAVEL PARA MOSTRAR O MAPA DE LOTES
+//VAI SER MOSTRADO AO UTILIZADOR OS TIPOS DE ALOJAMENTO
+//SE TEM LIGACAO A REDE ELETRICA E O NUMERO DE CAMPISTAS NO LOTE
+
  void mostraMapaDeLotes(Lote mapaLotes[][NUMCOLUNAS]){
 
         printf("\nMAPA DE LOTES\n");
@@ -43,6 +47,6 @@
             }
             printf("\n");
       }
-      printf("Pressione uma tecla para voltar ao menu");
+      printf("Pressione qualquer tecla do seu teclado\n");
       getch();
 }

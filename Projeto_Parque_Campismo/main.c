@@ -8,21 +8,23 @@
 #define NUMCOLUNAS 5
 #include "struct.h"
 
-	//PAGINA DO MENU CENTRAL
+	//PAGINA DO MENU CENTRAL// ONDE ESTÁ A NAVEGAÇÃO PARA TODA A APLICAÇÃO
 	int main()
 	{
+	    setlocale(LC_ALL, "Portuguese");
 
         Lote mapaLotes[NUMLINHAS][NUMCOLUNAS];
-        for (int i=0; i<5; i++ )//verificação
-	   {
-		    for (int j=0; j<5; j++ )
-		    {
-		        mapaLotes[i][j].nCamp = 0;
-		    }
-	   }
-	    fflush(stdin);
-		setlocale(LC_ALL, "Portuguese");
-	    int menu;
+        //AQUI ESTA A SER INICIALIZADO POR DEFAULT O NUMERO DE CAMPISTAS EM CADA LOTE A 0
+        //QUANDO O PROGRAMA ARRANCA
+            for (int i=0; i<5; i++ )
+           {
+                for (int j=0; j<5; j++ )
+                {
+                    mapaLotes[i][j].nCamp = 0;
+                }
+           }
+            fflush(stdin);
+            int menu;
 	    do
 	    {
 	    	system("CLS");
@@ -37,9 +39,10 @@
 			printf("  |   6- Libertar um lote             |\n");
 			printf("  |   7- Sair                         |\n");
 		    printf("  |-----------------------------------|\n");
-		    printf("Insira uma opçao que pretende:  ");
+		    printf("Insira uma opcao que pretende:  ");
 			scanf("%d", &menu);
 
+            //AQUI ESTAO AS LIGACOES PARA AS FUNCIONALIDADES DA APLICACAO
 		    switch(menu)
 		    {
 			    case 1:
@@ -56,7 +59,7 @@
 			        break;
 			    case 4:
 			    	system("cls");
-			    	//consultarPorCampista();
+			    	consultaCampistaPeloNome(&mapaLotes);
 			    	break;
                 case 5:
 			    	system("cls");
@@ -66,8 +69,6 @@
 			    	system("cls");
 			    	libertarLote(&mapaLotes);
 			    	break;
-
-
 		    }
 	} while (menu != 7);
 	return 0;
