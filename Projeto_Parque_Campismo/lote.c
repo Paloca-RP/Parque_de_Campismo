@@ -26,34 +26,25 @@
 ////////////////////////////////////
   //FUNÇAO QUE VAI INICIAR O PROCESSO DE RESERVA DO LOTE
   //VAI RECEBER TODOS OS DADOS RELATIVOS A RESERVA
-	void reservarUmLote(Lote mapaLotes[][NUMCOLUNAS]){
+	void reservarUmLote(Lote mapaLotes[][NUMCOLUNAS]){ mostraMapaDeLotes();
         setlocale(LC_ALL, "Portuguese");
 	    int numeroCampistas, contaCampistas=0, indiceNome=0, linha = 0, coluna = 0, diasAlojamento;
 	    float somaTaxa=0;
 	    char tarifaUsada, tarifaUsada2;
 	    int opValida =1;
-        mostraMapaDeLotes();
+
+
 	    Lote lote;
         printf("\n------------------------------------------------------------\n");
         printf("\t\tREGISTO DA RESERVA DO LOTE\n");
         printf("------------------------------------------------------------\n");
 
-            do{
+
             upa:
-                volta:
+            do{
             printf("INSIRA A ZONA DO PARQUE QUE QUER ALOJAR: [NR_RUA][NR LOTE]");
-            scanf("%d %d", &linha, &coluna);
-
-            if (linha < 'a' || linha >'z')
-            {
-                goto volta;
-            }
-            linha--;
-            coluna--;
-
-
-        }while(mapaLotes[linha][coluna].nCamp !=0 || linha>NUMLINHAS || coluna>NUMCOLUNAS);
-
+            scanf("%d %d", &linha, &coluna); linha--;coluna--;
+        }while(mapaLotes[linha][coluna].nCamp !=0);
 
 
 	     do{
@@ -132,11 +123,11 @@
                 mapaLotes[linha][coluna] = lote;
         }
 
-	//FUNÇAO QUE VAI RECEBER O ENDEREÇO DE UM LOTE
-	//E QUE VAI RETORNAR TODOS OS SEUS DADOS E OS DADOS DOS CAMPISTAS
-	//FUNÇAO RESPONSAVEL POR TODA A EDIÇÃO DO LOTE
-	//VAI RECEBER EM PRIMEIRO LUGAR AS COORDENADAS DO LOTE EM QUESTÃO E EM SEGUIDA RETORNA TODOS OS DADOS RELATIVOS AO LOTE
-	//DEPOIS MOSTRA UM MENU COM VARIAS OPCOES DE EDICAO.
+	/*FUNÇAO QUE VAI RECEBER O ENDEREÇO DE UM LOTE
+        E QUE VAI RETORNAR TODOS OS SEUS DADOS E OS DADOS DOS CAMPISTAS
+        FUNÇAO RESPONSAVEL POR TODA A EDIÇÃO DO LOTE
+        VAI RECEBER EM PRIMEIRO LUGAR AS COORDENADAS DO LOTE EM QUESTÃO E EM SEGUIDA RETORNA TODOS OS DADOS RELATIVOS AO LOTE
+        DEPOIS MOSTRA UM MENU COM VARIAS OPCOES DE EDICAO.*/
     void editarLote(Lote mapaLotes[][NUMCOLUNAS]){
         int linha, coluna;
 
@@ -176,7 +167,7 @@
                 goto upa;
             }
             else{
-                 system("cls");
+                system("cls");
                 printf("--------------------------------------------------------------------------------------\n");
                 printf("LEGENDA: T-TENDA, A-AUTOCARAVANA, C-CARAVANA, X-SEM ELETRICIDADE, E-COM ELETRICIDADE\n");
                 printf("--------------------------------------------------------------------------------------\n");
@@ -218,7 +209,7 @@
             char temEletridade, tipoAlojamento;
             switch(op)
             {
-                //VAI RECEBER OS NOVOS DADOS DE TIPO DE ALOJAMENTO E LIGACAO A REDE ELETRICA
+                //VAI RECEBER OS NOVOS DADOS COMO O TIPO DE ALOJAMENTO E LIGACAO A REDE ELETRICA
                 case 1:
                     do{
                     printf("\nTEM ELETRICIDADE?: [S]IM OU [N]AO");

@@ -16,7 +16,7 @@
         Lote mapaLotes[NUMLINHAS][NUMCOLUNAS];
         //AQUI ESTA A SER INICIALIZADO POR DEFAULT O NUMERO DE CAMPISTAS EM CADA LOTE A 0
         //QUANDO O PROGRAMA ARRANCA
-            for (int i=0; i<5; i++ )
+        for (int i=0; i<5; i++ )
            {
                 for (int j=0; j<5; j++ )
                 {

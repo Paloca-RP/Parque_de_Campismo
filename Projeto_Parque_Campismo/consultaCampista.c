@@ -26,11 +26,11 @@ void consultaCampistaPeloNome(Lote mapaLotes[][NUMCOLUNAS])
     printf("INTRODUZA O O NOME COMPLETO DO CAMPISTA QUE QUER PROCURAR: \n");
     gets(procura);
 
-        for (int i=0; i< NUMLINHAS; i++)
+        for (int i = 0; i < NUMLINHAS; i++)
         {
-            for (int j=0; j<NUMCOLUNAS; j++)
+            for (int j = 0; j < NUMCOLUNAS; j++)
             {
-                 for (int k=0; k<6;k++)
+                 for (int k = 0; k < 6; k++)
                  {
                      if (strcmp(procura,mapaLotes[i][j].campistas[k].nome))
                     {
